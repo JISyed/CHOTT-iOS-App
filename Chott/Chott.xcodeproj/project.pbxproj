@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		51D23B8E203D188C00E8200E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D23B8D203D188C00E8200E /* AppDelegate.swift */; };
-		51D23B90203D188C00E8200E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D23B8F203D188C00E8200E /* ViewController.swift */; };
+		51D23B90203D188C00E8200E /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D23B8F203D188C00E8200E /* CategoryViewController.swift */; };
 		51D23B93203D188C00E8200E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51D23B91203D188C00E8200E /* Main.storyboard */; };
 		51D23B96203D188C00E8200E /* Chott.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 51D23B94203D188C00E8200E /* Chott.xcdatamodeld */; };
 		51D23B98203D188C00E8200E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51D23B97203D188C00E8200E /* Assets.xcassets */; };
@@ -30,7 +30,7 @@
 /* Begin PBXFileReference section */
 		51D23B8A203D188C00E8200E /* Chott.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chott.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51D23B8D203D188C00E8200E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		51D23B8F203D188C00E8200E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		51D23B8F203D188C00E8200E /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		51D23B92203D188C00E8200E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		51D23B95203D188C00E8200E /* Chott.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Chott.xcdatamodel; sourceTree = "<group>"; };
 		51D23B97203D188C00E8200E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 		51D23BB0203DB73E00E8200E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				51D23B8F203D188C00E8200E /* ViewController.swift */,
+				51D23B8F203D188C00E8200E /* CategoryViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -239,7 +239,7 @@
 			files = (
 				51D23B96203D188C00E8200E /* Chott.xcdatamodeld in Sources */,
 				51D23BB5203DB7DE00E8200E /* AppColors.swift in Sources */,
-				51D23B90203D188C00E8200E /* ViewController.swift in Sources */,
+				51D23B90203D188C00E8200E /* CategoryViewController.swift in Sources */,
 				51D23B8E203D188C00E8200E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
