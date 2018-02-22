@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51507F5A203F3133006A25A7 /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51507F59203F3133006A25A7 /* CircularView.swift */; };
 		51C24948203E6C930063D125 /* AddProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C24947203E6C930063D125 /* AddProjectViewController.swift */; };
 		51D23B8E203D188C00E8200E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D23B8D203D188C00E8200E /* AppDelegate.swift */; };
 		51D23B90203D188C00E8200E /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D23B8F203D188C00E8200E /* CategoryViewController.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		51507F59203F3133006A25A7 /* CircularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
 		51C24947203E6C930063D125 /* AddProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectViewController.swift; sourceTree = "<group>"; };
 		51D23B8A203D188C00E8200E /* Chott.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chott.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51D23B8D203D188C00E8200E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		51D23BB1203DB74B00E8200E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				51507F59203F3133006A25A7 /* CircularView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				51D23B96203D188C00E8200E /* Chott.xcdatamodeld in Sources */,
 				51D23BB5203DB7DE00E8200E /* AppColors.swift in Sources */,
 				51D23B90203D188C00E8200E /* CategoryViewController.swift in Sources */,
+				51507F5A203F3133006A25A7 /* CircularView.swift in Sources */,
 				51C24948203E6C930063D125 /* AddProjectViewController.swift in Sources */,
 				51D23B8E203D188C00E8200E /* AppDelegate.swift in Sources */,
 			);
