@@ -23,26 +23,32 @@ class CategoryViewController: UIViewController
     
     @IBAction func onCategoryBtnPressed(_ sender: UIButton) 
     {
+        var chosenCategory: ChottCategory? = nil
+        
         switch sender.tag 
         {
         case 1:
-            
+            chosenCategory = .code
             break
         case 2:
-            
+            chosenCategory = .art
             break
         case 3:
-            
+            chosenCategory = .music
             break
         case 4:
-            
+            chosenCategory = .writing
             break
         default:
-            
+            debugPrint("ERROR: Category button tag is invalid. Should be between 1-4.")
             break
         }
         
+        guard let projectVC = storyboard?.instantiateViewController(withIdentifier: SelectProjectViewController.STRYBRD_ID) as? SelectProjectViewController else {return}
         
+        projectVC.setup(with: chosenCategory)
+        
+        present(projectVC, animated: true, completion: nil)
     }
     
     

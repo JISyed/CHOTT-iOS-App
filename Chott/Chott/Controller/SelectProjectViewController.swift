@@ -18,6 +18,8 @@ class SelectProjectViewController: UIViewController
     @IBOutlet weak var btnAdd: UIButton!
     @IBOutlet weak var tableProjects: UITableView!
     
+    private var currentCategory: ChottCategory!
+    
     
     override func viewDidLoad() 
     {
@@ -25,12 +27,26 @@ class SelectProjectViewController: UIViewController
         // Do any additional setup after loading the view.
         
         self.tableProjects.delegate = self
+        
+        guard let category = currentCategory else {return}
+        self.imgViewCategory.image = ChottCategory.icon(of: category)
+        self.lblCategory.text = category.rawValue
+        self.viewCategoryBanner.backgroundColor = ChottCategory.regularColor(of: category)
+        self.btnAdd.backgroundColor = ChottCategory.darkColor(of: category)
+        
     }
+    
+    
+    func setup(with category: ChottCategory?)
+    {
+        self.currentCategory = category
+    }
+    
     
     
     @IBAction func onBackBtnPressed(_ sender: Any) 
     {
-        
+        dismiss(animated: true, completion: nil)
     }
     
     

@@ -13,6 +13,7 @@
 		51507F60203F940D006A25A7 /* ProjectHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51507F5F203F940D006A25A7 /* ProjectHistoryViewController.swift */; };
 		51507F62203F958F006A25A7 /* ProjectTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51507F61203F958F006A25A7 /* ProjectTableCell.swift */; };
 		51507F64203F95FE006A25A7 /* HistoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51507F63203F95FE006A25A7 /* HistoryTableCell.swift */; };
+		51507F662040C8A7006A25A7 /* ChottCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51507F652040C8A7006A25A7 /* ChottCategory.swift */; };
 		51C24948203E6C930063D125 /* AddProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C24947203E6C930063D125 /* AddProjectViewController.swift */; };
 		51D23B8E203D188C00E8200E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D23B8D203D188C00E8200E /* AppDelegate.swift */; };
 		51D23B90203D188C00E8200E /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D23B8F203D188C00E8200E /* CategoryViewController.swift */; };
@@ -41,6 +42,7 @@
 		51507F5F203F940D006A25A7 /* ProjectHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHistoryViewController.swift; sourceTree = "<group>"; };
 		51507F61203F958F006A25A7 /* ProjectTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableCell.swift; sourceTree = "<group>"; };
 		51507F63203F95FE006A25A7 /* HistoryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableCell.swift; sourceTree = "<group>"; };
+		51507F652040C8A7006A25A7 /* ChottCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChottCategory.swift; sourceTree = "<group>"; };
 		51C24947203E6C930063D125 /* AddProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectViewController.swift; sourceTree = "<group>"; };
 		51D23B8A203D188C00E8200E /* Chott.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chott.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51D23B8D203D188C00E8200E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 		51D23BB2203DB75400E8200E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				51507F652040C8A7006A25A7 /* ChottCategory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				51507F5C203F9331006A25A7 /* SelectProjectViewController.swift in Sources */,
 				51D23B90203D188C00E8200E /* CategoryViewController.swift in Sources */,
 				51507F62203F958F006A25A7 /* ProjectTableCell.swift in Sources */,
+				51507F662040C8A7006A25A7 /* ChottCategory.swift in Sources */,
 				51507F5E203F93AB006A25A7 /* ProjectTimerViewController.swift in Sources */,
 				51507F60203F940D006A25A7 /* ProjectHistoryViewController.swift in Sources */,
 				51507F5A203F3133006A25A7 /* CircularView.swift in Sources */,

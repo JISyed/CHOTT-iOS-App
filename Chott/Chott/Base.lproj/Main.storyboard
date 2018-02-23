@@ -303,6 +303,7 @@
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_timer" translatesAutoresizingMaskIntoConstraints="NO" id="p2L-lF-QYU" userLabel="category_icon">
                                         <rect key="frame" x="8" y="11" width="48" height="48"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="BXk-ou-f4U"/>
                                             <constraint firstAttribute="width" constant="48" id="aYc-Pj-d3G"/>
@@ -462,6 +463,7 @@
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_timer" translatesAutoresizingMaskIntoConstraints="NO" id="S6S-uc-Y8L" userLabel="category_icon">
                                         <rect key="frame" x="8" y="11" width="48" height="48"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="48" id="Ab7-Gy-P02"/>
                                             <constraint firstAttribute="height" constant="48" id="EkJ-B0-p0E"/>
@@ -649,6 +651,7 @@
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_timer" translatesAutoresizingMaskIntoConstraints="NO" id="4sv-Im-7qT">
                                 <rect key="frame" x="16" y="86" width="48" height="48"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="XGu-hQ-Zuo"/>
                                     <constraint firstAttribute="width" constant="48" id="jsM-uv-Q2J"/>
@@ -799,6 +802,7 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_timer" translatesAutoresizingMaskIntoConstraints="NO" id="feO-MQ-7sd" userLabel="category_icon">
                                         <rect key="frame" x="8" y="8" width="24" height="24"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="8QD-eb-oIg"/>
                                             <constraint firstAttribute="height" constant="24" id="T3i-Pl-o4e"/>
