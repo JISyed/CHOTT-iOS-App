@@ -13,6 +13,9 @@ class AddProjectViewController: UIViewController
     static let STRYBRD_ID = "AddProjectVC"
     
     @IBOutlet weak var txtFieldNewName: UITextField!
+    @IBOutlet weak var imgViewCategory: UIImageView!
+    @IBOutlet weak var lblCategory: UILabel!
+    @IBOutlet weak var viewCategoryBanner: UIView!
     
     
     override func viewDidLoad() 
@@ -35,7 +38,26 @@ class AddProjectViewController: UIViewController
         self.view.endEditing(true)
     }
     
+    
+    @IBAction func onCancelBtnPressed(_ sender: Any) 
+    {
+        
+    }
+    
+    @IBAction func onAddBtnPressed(_ sender: Any) 
+    {
+        
+    }
+    
+    @IBAction func onAddAndTrackBtnPressed(_ sender: Any) 
+    {
+        
+    }
+    
+    
 }
+
+
 
 extension AddProjectViewController: UITextFieldDelegate
 {
@@ -46,7 +68,7 @@ extension AddProjectViewController: UITextFieldDelegate
 }
 
 
+
 extension AddProjectViewController: UIGestureRecognizerDelegate
 {
-    
 }

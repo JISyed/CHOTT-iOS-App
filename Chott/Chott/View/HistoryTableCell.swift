@@ -12,6 +12,10 @@ class HistoryTableCell: UITableViewCell
 {
     static let ID = "HistoryCell"
     
+    @IBOutlet weak var lblDate: UILabel!
+    @IBOutlet weak var lblStartAndEndTimes: UILabel!
+    @IBOutlet weak var lblDuration: UILabel!
+    
     
     override func awakeFromNib() 
     {

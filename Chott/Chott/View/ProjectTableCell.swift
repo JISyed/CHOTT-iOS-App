@@ -12,6 +12,8 @@ class ProjectTableCell: UITableViewCell
 {
     static let ID = "ProjectCell"
     
+    @IBOutlet weak var btnProjectName: UIButton!
+    
     
     override func awakeFromNib() 
     {
@@ -27,6 +29,17 @@ class ProjectTableCell: UITableViewCell
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
         
+        
+    }
+    
+    
+    @IBAction func onProjectNamePressed(_ sender: UIButton) 
+    {
+        
+    }
+    
+    @IBAction func onHistoryBtnPressed(_ sender: Any) 
+    {
         
     }
     

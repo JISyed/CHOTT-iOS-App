@@ -46,8 +46,11 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b3K-X3-Rf6" userLabel="ViewCode">
                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="225"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Joa-Vk-eHT" userLabel="ButtonCode">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Joa-Vk-eHT" userLabel="ButtonCode">
                                                         <rect key="frame" x="0.0" y="0.0" width="136.5" height="225.5"/>
+                                                        <connections>
+                                                            <action selector="onCategoryBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WMN-yA-rCD"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_code_big" translatesAutoresizingMaskIntoConstraints="NO" id="u0B-sz-5vp" userLabel="ImageViewCode">
                                                         <rect key="frame" x="20.5" y="65" width="96" height="96"/>
@@ -88,8 +91,11 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kx6-Zm-Zg7" userLabel="ViewArt">
                                                 <rect key="frame" x="152" y="0.0" width="136" height="225"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5z3-19-vEw" userLabel="ButtonArt">
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5z3-19-vEw" userLabel="ButtonArt">
                                                         <rect key="frame" x="-0.5" y="0.0" width="136.5" height="225"/>
+                                                        <connections>
+                                                            <action selector="onCategoryBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8pY-dH-izi"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_art_big" translatesAutoresizingMaskIntoConstraints="NO" id="udz-ny-Tyz" userLabel="ImageViewArt">
                                                         <rect key="frame" x="20.5" y="65" width="96" height="96"/>
@@ -135,8 +141,11 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePX-GE-LMO" userLabel="ViewMusic">
                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="225"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IqD-1t-3Jl" userLabel="ButtonMusic">
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IqD-1t-3Jl" userLabel="ButtonMusic">
                                                         <rect key="frame" x="0.0" y="-0.5" width="136" height="225"/>
+                                                        <connections>
+                                                            <action selector="onCategoryBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DWs-1o-Ifc"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_music_big" translatesAutoresizingMaskIntoConstraints="NO" id="Fwd-Yi-MZX" userLabel="ImageViewMusic">
                                                         <rect key="frame" x="20.5" y="65" width="96" height="96"/>
@@ -177,8 +186,11 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GuN-eB-xFT" userLabel="ViewWriting">
                                                 <rect key="frame" x="152" y="0.0" width="136" height="225"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7d-vv-PfA" userLabel="ButtonWriting">
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7d-vv-PfA" userLabel="ButtonWriting">
                                                         <rect key="frame" x="-0.5" y="-0.5" width="136.5" height="225"/>
+                                                        <connections>
+                                                            <action selector="onCategoryBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LUV-qR-Xqr"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_writing_big" translatesAutoresizingMaskIntoConstraints="NO" id="35d-eu-qIo" userLabel="ImageViewWriting">
                                                         <rect key="frame" x="20.5" y="65" width="96" height="96"/>
@@ -266,6 +278,9 @@
                                         <state key="normal" image="ico_back">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onBackBtnPressed:" destination="CSv-R8-vQd" eventType="touchUpInside" id="dGJ-nC-rY8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1019169531" green="0.11786832260000001" blue="0.1345117887" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -301,6 +316,9 @@
                                             <constraint firstAttribute="width" constant="48" id="HnC-93-s12"/>
                                         </constraints>
                                         <state key="normal" image="ico_add"/>
+                                        <connections>
+                                            <action selector="onAddBtnPressed:" destination="CSv-R8-vQd" eventType="touchUpInside" id="TXb-SZ-ETz"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -333,6 +351,9 @@
                                                         <constraint firstAttribute="height" constant="48" id="sJ2-UC-2HN"/>
                                                     </constraints>
                                                     <state key="normal" image="ico_history"/>
+                                                    <connections>
+                                                        <action selector="onHistoryBtnPressed:" destination="rAH-cd-ujA" eventType="touchUpInside" id="qYN-oX-xC2"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="iue-KA-B9q">
                                                     <rect key="frame" x="72" y="5" width="232" height="49.5"/>
@@ -340,6 +361,9 @@
                                                     <state key="normal" title="Project Name">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="onProjectNamePressed:" destination="rAH-cd-ujA" eventType="touchUpInside" id="aUW-q7-4VT"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -353,6 +377,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="btnProjectName" destination="iue-KA-B9q" id="6uE-ma-BaS"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -372,6 +399,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rYB-kk-iT3"/>
                     </view>
+                    <connections>
+                        <outlet property="btnAdd" destination="kOD-yD-jn2" id="Lkr-F2-NEi"/>
+                        <outlet property="imgViewCategory" destination="p2L-lF-QYU" id="heZ-Pj-toa"/>
+                        <outlet property="lblCategory" destination="Zs2-Ow-AH9" id="5cH-gf-WgF"/>
+                        <outlet property="tableProjects" destination="Bi7-Tw-m9r" id="1jZ-MI-NU1"/>
+                        <outlet property="viewCategoryBanner" destination="Y1N-aD-H6B" id="mZM-Sh-7fE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bd3-NQ-eHe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -403,6 +437,9 @@
                                         <state key="normal" image="ico_back">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onCancelBtnPressed:" destination="iSY-lr-Cdh" eventType="touchUpInside" id="0Lb-mM-VKJ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1019169531" green="0.11786832260000001" blue="0.1345117887" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -453,6 +490,9 @@
                                         <state key="normal" title=" Add &amp; Start Tracking" image="ico_timer">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onAddAndTrackBtnPressed:" destination="iSY-lr-Cdh" eventType="touchUpInside" id="2N6-TB-skr"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7Cw-Xp-xtM">
                                         <rect key="frame" x="0.0" y="68" width="288" height="60"/>
@@ -463,6 +503,9 @@
                                                 <state key="normal" title="Add" image="ico_add">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="onAddBtnPressed:" destination="iSY-lr-Cdh" eventType="touchUpInside" id="lGK-Pp-3od"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esQ-Eq-OCF">
                                                 <rect key="frame" x="148" y="0.0" width="140" height="60"/>
@@ -471,6 +514,9 @@
                                                 <state key="normal" title="Cancel">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="onCancelBtnPressed:" destination="iSY-lr-Cdh" eventType="touchUpInside" id="K7U-jR-17K"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -518,7 +564,10 @@
                         <viewLayoutGuide key="safeArea" id="6PN-rm-kC1"/>
                     </view>
                     <connections>
+                        <outlet property="imgViewCategory" destination="S6S-uc-Y8L" id="fP8-fX-C1b"/>
+                        <outlet property="lblCategory" destination="LWx-sO-2oj" id="VKI-f7-dQc"/>
                         <outlet property="txtFieldNewName" destination="0sy-EI-B5l" id="k8e-cH-g7a"/>
+                        <outlet property="viewCategoryBanner" destination="Nk4-ee-gbt" id="RJn-lE-334"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z9V-WI-SOs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -563,6 +612,9 @@
                                         <state key="normal" title="Finish Timing">
                                             <color key="titleColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onFinishPressed:" destination="UdR-bn-YuC" eventType="touchUpInside" id="A6a-tq-7qB"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jBt-LB-0pT">
                                         <rect key="frame" x="0.0" y="68" width="288" height="60"/>
@@ -573,6 +625,9 @@
                                                 <state key="normal" title="Restart" image="ico_restart">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="onRestartPressed:" destination="UdR-bn-YuC" eventType="touchUpInside" id="NNF-gR-vc9"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncC-sP-0hs">
                                                 <rect key="frame" x="148" y="0.0" width="140" height="60"/>
@@ -581,6 +636,9 @@
                                                 <state key="normal" title="Cancel">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="onCancelPressed:" destination="UdR-bn-YuC" eventType="touchUpInside" id="fIg-cJ-8Ip"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -683,6 +741,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rwy-Qu-dqB"/>
                     </view>
+                    <connections>
+                        <outlet property="btnFinish" destination="vNn-YF-cf9" id="H6f-ip-ncv"/>
+                        <outlet property="imgViewCategory" destination="4sv-Im-7qT" id="43v-Cl-YqF"/>
+                        <outlet property="lblCategory" destination="NDS-uu-rMu" id="qZU-s3-VqA"/>
+                        <outlet property="lblProjectName" destination="oZP-IR-E3z" id="kIU-gd-yOW"/>
+                        <outlet property="lblTimer" destination="08T-Hg-fkj" id="2Oc-QO-pMl"/>
+                        <outlet property="viewColoredRing" destination="tg9-6Y-5cZ" id="oMi-J9-BnN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="op6-ce-IRP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -714,6 +780,9 @@
                                         <state key="normal" image="ico_back">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onBackBtnPressed:" destination="Rac-eb-tFf" eventType="touchUpInside" id="0me-a1-6w8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1019169531" green="0.11786832260000001" blue="0.1345117887" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -804,6 +873,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="lblDate" destination="oi6-d9-h9O" id="HUd-FA-M3k"/>
+                                            <outlet property="lblDuration" destination="f1U-Pr-bya" id="pbk-yq-kPI"/>
+                                            <outlet property="lblStartAndEndTimes" destination="yqf-CL-yOe" id="5Cb-Hr-cne"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -825,6 +899,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Hh-0j-LBA"/>
                     </view>
+                    <connections>
+                        <outlet property="imgViewCategory" destination="feO-MQ-7sd" id="wpc-mb-sci"/>
+                        <outlet property="lblCategory" destination="qnj-mI-SfC" id="7AD-Vh-4S2"/>
+                        <outlet property="lblProjectName" destination="Jzz-FZ-Yx5" id="D4n-zd-KfB"/>
+                        <outlet property="tableSessions" destination="xv8-Em-xIy" id="YgN-bZ-ETo"/>
+                        <outlet property="viewHistoryBanner" destination="pbZ-g4-IVD" id="vOk-sL-PUf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z6J-Wc-iwl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
