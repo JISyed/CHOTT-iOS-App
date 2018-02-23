@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UdR-bn-YuC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -240,10 +240,10 @@
             </objects>
             <point key="canvasLocation" x="400.80000000000001" y="68.815592203898049"/>
         </scene>
-        <!--View Controller-->
+        <!--Select Project View Controller-->
         <scene sceneID="OCh-OI-Iw7">
             <objects>
-                <viewController id="CSv-R8-vQd" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectProjectVC" id="CSv-R8-vQd" customClass="SelectProjectViewController" customModule="Chott" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wfr-Qj-rhs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -319,7 +319,7 @@
                                 <rect key="frame" x="0.0" y="140" width="320" height="428"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProjectCell" rowHeight="60" id="rAH-cd-ujA">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProjectCell" rowHeight="60" id="rAH-cd-ujA" customClass="ProjectTableCell" customModule="Chott" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rAH-cd-ujA" id="0db-VD-0IM">
@@ -525,10 +525,10 @@
             </objects>
             <point key="canvasLocation" x="1871" y="69"/>
         </scene>
-        <!--View Controller-->
+        <!--Project Timer View Controller-->
         <scene sceneID="xFe-zj-Tmm">
             <objects>
-                <viewController id="UdR-bn-YuC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TimerVC" id="UdR-bn-YuC" customClass="ProjectTimerViewController" customModule="Chott" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="swN-Yo-EMO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -688,10 +688,10 @@
             </objects>
             <point key="canvasLocation" x="2634.375" y="68.661971830985919"/>
         </scene>
-        <!--View Controller-->
+        <!--Project History View Controller-->
         <scene sceneID="krE-Rw-aHa">
             <objects>
-                <viewController id="Rac-eb-tFf" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HistoryVC" id="Rac-eb-tFf" customClass="ProjectHistoryViewController" customModule="Chott" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qwX-Ic-OPZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -765,7 +765,7 @@
                                 <rect key="frame" x="0.0" y="160" width="320" height="408"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryCell" rowHeight="60" id="hsn-Qc-4pI">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryCell" rowHeight="60" id="hsn-Qc-4pI" customClass="HistoryTableCell" customModule="Chott" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hsn-Qc-4pI" id="bcG-B4-8mH">
@@ -792,9 +792,12 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yqf-CL-yOe" secondAttribute="trailingMargin" id="Mud-zK-qch"/>
                                                 <constraint firstItem="yqf-CL-yOe" firstAttribute="leading" secondItem="bcG-B4-8mH" secondAttribute="leadingMargin" id="TqF-Na-mkB"/>
                                                 <constraint firstItem="oi6-d9-h9O" firstAttribute="top" secondItem="bcG-B4-8mH" secondAttribute="topMargin" id="VcE-qp-cLB"/>
                                                 <constraint firstItem="yqf-CL-yOe" firstAttribute="bottom" secondItem="bcG-B4-8mH" secondAttribute="bottomMargin" id="cbv-pb-6vL"/>
+                                                <constraint firstItem="f1U-Pr-bya" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bcG-B4-8mH" secondAttribute="leadingMargin" id="dYA-yF-UdM"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oi6-d9-h9O" secondAttribute="trailingMargin" id="e4z-Q8-pxP"/>
                                                 <constraint firstItem="oi6-d9-h9O" firstAttribute="leading" secondItem="bcG-B4-8mH" secondAttribute="leadingMargin" id="go8-AY-tWS"/>
                                                 <constraint firstItem="f1U-Pr-bya" firstAttribute="trailing" secondItem="bcG-B4-8mH" secondAttribute="trailingMargin" id="iCj-qA-f5R"/>
                                                 <constraint firstItem="f1U-Pr-bya" firstAttribute="centerY" secondItem="bcG-B4-8mH" secondAttribute="centerY" id="j9A-4C-Wle"/>

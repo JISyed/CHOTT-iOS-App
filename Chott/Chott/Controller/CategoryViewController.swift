@@ -10,13 +10,17 @@ import UIKit
 
 class CategoryViewController: UIViewController 
 {
-
+    static let STRYBRD_ID = "CategoryVC"
+    
     override func viewDidLoad() 
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
     }
-
+    
+    
+    
 }
 

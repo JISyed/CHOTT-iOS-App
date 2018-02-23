@@ -10,6 +10,8 @@ import UIKit
 
 class AddProjectViewController: UIViewController 
 {
+    static let STRYBRD_ID = "AddProjectVC"
+    
     @IBOutlet weak var txtFieldNewName: UITextField!
     
     
