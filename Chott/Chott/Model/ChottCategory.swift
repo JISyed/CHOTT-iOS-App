@@ -70,13 +70,13 @@ enum ChottCategory: String
         switch category
         {
         case .code:
-            return UIImage(named: "ico_code")!
+            return AppImages.iconCode
         case .art:
-            return UIImage(named: "ico_art")!
+            return AppImages.iconArt
         case .music:
-            return UIImage(named: "ico_music")!
+            return AppImages.iconMusic
         case .writing:
-            return UIImage(named: "ico_writing")!
+            return AppImages.iconWriting
         }
     }
     

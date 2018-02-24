@@ -28,13 +28,21 @@ class SelectProjectViewController: UIViewController
         
         self.tableProjects.delegate = self
         
+        
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) 
+    {
+        super.viewWillAppear(animated)
+        
         guard let category = currentCategory else {return}
         self.imgViewCategory.image = ChottCategory.icon(of: category)
         self.lblCategory.text = category.rawValue
         self.viewCategoryBanner.backgroundColor = ChottCategory.regularColor(of: category)
         self.btnAdd.backgroundColor = ChottCategory.darkColor(of: category)
-        
     }
+    
     
     
     func setup(with category: ChottCategory?)
@@ -52,7 +60,11 @@ class SelectProjectViewController: UIViewController
     
     @IBAction func onAddBtnPressed(_ sender: Any) 
     {
+        guard let addProjectVC = storyboard?.instantiateViewController(withIdentifier: AddProjectViewController.STRYBRD_ID) as? AddProjectViewController else {return}
         
+        //addProjectVC.setup(with: chosenCategory)
+        
+        present(addProjectVC, animated: true, completion: nil)
     }
     
     

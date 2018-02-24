@@ -41,7 +41,8 @@ class ProjectTimerViewController: UIViewController
     
     @IBAction func onCancelPressed(_ sender: Any) 
     {
-        
+        // TODO: Confirm cancelling first
+        dismiss(animated: true, completion: nil)
     }
     
     

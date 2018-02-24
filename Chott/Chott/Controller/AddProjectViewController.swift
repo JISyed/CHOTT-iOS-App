@@ -41,17 +41,25 @@ class AddProjectViewController: UIViewController
     
     @IBAction func onCancelBtnPressed(_ sender: Any) 
     {
-        
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onAddBtnPressed(_ sender: Any) 
     {
-        
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onAddAndTrackBtnPressed(_ sender: Any) 
     {
+        guard let timerVC = self.storyboard?.instantiateViewController(withIdentifier: ProjectTimerViewController.STRYBRD_ID) as? ProjectTimerViewController else {return}
         
+        guard let presentedVC = presentedViewController else { debugPrint("ERROR: Could not dismiss this VC!"); return }
+        presentedVC.dismiss(animated: false) 
+        {
+            // Setup TimerVC
+            
+            self.present(timerVC, animated: false, completion: nil)
+        }
     }
     
     

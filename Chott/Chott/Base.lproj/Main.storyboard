@@ -489,6 +489,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="skb-hy-tO4"/>
                                         </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title=" Add &amp; Start Tracking" image="ico_timer">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>

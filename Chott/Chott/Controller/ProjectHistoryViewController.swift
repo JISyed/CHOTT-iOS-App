@@ -31,7 +31,7 @@ class ProjectHistoryViewController: UIViewController
     
     @IBAction func onBackBtnPressed(_ sender: Any) 
     {
-        
+        dismiss(animated: true, completion: nil)
     }
     
     
