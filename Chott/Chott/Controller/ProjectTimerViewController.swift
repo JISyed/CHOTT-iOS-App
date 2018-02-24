@@ -31,9 +31,38 @@ class ProjectTimerViewController: UIViewController
     }
     
     
+    override func viewWillAppear(_ animated: Bool) 
+    {
+        super.viewWillAppear(animated)
+        
+        guard let category = currentCategory else {return}
+        let liteColor = ChottCategory.liteColor(of: category)
+        
+        self.imgViewCategory.image = ChottCategory.icon(of: category)
+        self.imgViewCategory.tintColor = liteColor
+        self.lblCategory.text = category.rawValue
+        self.lblCategory.textColor = liteColor
+        self.lblProjectName.text = "TODO: SET UP THE PROJECT NAME"
+        self.lblProjectName.textColor = liteColor
+        self.lblTimer.text = "0:00"
+        self.lblTimer.textColor = liteColor
+        self.viewColoredRing.backgroundColor = ChottCategory.regularColor(of: category)
+        self.btnFinish.setTitleColor(liteColor, for: .normal)
+        self.btnFinish.backgroundColor = ChottCategory.darkColor(of: category)
+        
+    }
+    
+    
+    func setup(with category: ChottCategory?)
+    {
+        self.currentCategory = category
+    }
+    
+    
     @IBAction func onFinishPressed(_ sender: Any) 
     {
-        
+        // TODO: Add session record before dismissing
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onRestartPressed(_ sender: Any) 

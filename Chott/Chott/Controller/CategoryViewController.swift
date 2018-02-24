@@ -44,11 +44,11 @@ class CategoryViewController: UIViewController
             break
         }
         
-        guard let projectVC = storyboard?.instantiateViewController(withIdentifier: SelectProjectViewController.STRYBRD_ID) as? SelectProjectViewController else {return}
+        guard let selectProjectVC = storyboard?.instantiateViewController(withIdentifier: SelectProjectViewController.STRYBRD_ID) as? SelectProjectViewController else { debugPrint("ERROR: Could not get SelectProjectVC!"); return }
         
-        projectVC.setup(with: chosenCategory)
+        selectProjectVC.setup(with: chosenCategory)
         
-        present(projectVC, animated: true, completion: nil)
+        present(selectProjectVC, animated: true, completion: nil)
     }
     
     

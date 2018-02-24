@@ -30,6 +30,12 @@ class ProjectHistoryViewController: UIViewController
     }    
     
     
+    func setup(with category: ChottCategory?)
+    {
+        self.currentCategory = category
+    }
+    
+    
     @IBAction func onBackBtnPressed(_ sender: Any) 
     {
         dismiss(animated: true, completion: nil)

@@ -60,9 +60,9 @@ class SelectProjectViewController: UIViewController
     
     @IBAction func onAddBtnPressed(_ sender: Any) 
     {
-        guard let addProjectVC = storyboard?.instantiateViewController(withIdentifier: AddProjectViewController.STRYBRD_ID) as? AddProjectViewController else {return}
+        guard let addProjectVC = storyboard?.instantiateViewController(withIdentifier: AddProjectViewController.STRYBRD_ID) as? AddProjectViewController else { debugPrint("ERROR: Could not get AddProjectVC!"); return}
         
-        //addProjectVC.setup(with: chosenCategory)
+        addProjectVC.setup(with: self.currentCategory)
         
         present(addProjectVC, animated: true, completion: nil)
     }

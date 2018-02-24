@@ -38,7 +38,10 @@ class AddProjectViewController: UIViewController
     {
         super.viewWillAppear(animated)
         
-        
+        guard let category = currentCategory else {return}
+        self.imgViewCategory.image = ChottCategory.icon(of: category)
+        self.lblCategory.text = category.rawValue
+        self.viewCategoryBanner.backgroundColor = ChottCategory.regularColor(of: category)
     }
     
     
@@ -87,7 +90,7 @@ class AddProjectViewController: UIViewController
         guard let previousVC = presentingViewController else { debugPrint("ERROR: Could not get previous VC!"); return }
         self.dismiss(animated: true) 
         {
-            // Setup TimerVC
+            timerVC.setup(with: self.currentCategory)
             
             previousVC.present(timerVC, animated: true, completion: nil)
         }
