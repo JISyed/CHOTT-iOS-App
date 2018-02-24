@@ -18,7 +18,7 @@ class SelectProjectViewController: UIViewController
     @IBOutlet weak var btnAdd: UIButton!
     @IBOutlet weak var tableProjects: UITableView!
     
-    private var currentCategory: ChottCategory!
+    private var currentCategory: ChottCategory?
     
     
     override func viewDidLoad() 

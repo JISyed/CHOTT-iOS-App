@@ -18,6 +18,7 @@ class ProjectHistoryViewController: UIViewController
     @IBOutlet weak var viewHistoryBanner: UIView!
     @IBOutlet weak var tableSessions: UITableView!
     
+    private var currentCategory: ChottCategory?
     
     
     override func viewDidLoad() 

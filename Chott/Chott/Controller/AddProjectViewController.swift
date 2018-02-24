@@ -17,6 +17,8 @@ class AddProjectViewController: UIViewController
     @IBOutlet weak var lblCategory: UILabel!
     @IBOutlet weak var viewCategoryBanner: UIView!
     
+    private var currentCategory: ChottCategory?
+    
     
     override func viewDidLoad() 
     {
@@ -32,10 +34,35 @@ class AddProjectViewController: UIViewController
     }
     
     
+    override func viewWillAppear(_ animated: Bool) 
+    {
+        super.viewWillAppear(animated)
+        
+        
+    }
+    
+    
+    func setup(with category: ChottCategory?)
+    {
+        self.currentCategory = category
+    }
+    
+    
     @objc
     private func onTap(_ recognizer: UITapGestureRecognizer)
     {
         self.view.endEditing(true)
+    }
+    
+    
+    
+    private func addNewProject()
+    {
+        // TODO: Make sure text field isn't empty
+        
+        // TODO: Make sure given name doens't already exist
+        
+        // TODO: Add project
     }
     
     
@@ -46,19 +73,23 @@ class AddProjectViewController: UIViewController
     
     @IBAction func onAddBtnPressed(_ sender: Any) 
     {
+        self.addNewProject()
+        
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onAddAndTrackBtnPressed(_ sender: Any) 
     {
-        guard let timerVC = self.storyboard?.instantiateViewController(withIdentifier: ProjectTimerViewController.STRYBRD_ID) as? ProjectTimerViewController else {return}
+        self.addNewProject()
         
-        guard let presentedVC = presentedViewController else { debugPrint("ERROR: Could not dismiss this VC!"); return }
-        presentedVC.dismiss(animated: false) 
+        guard let timerVC = self.storyboard?.instantiateViewController(withIdentifier: ProjectTimerViewController.STRYBRD_ID) as? ProjectTimerViewController else { debugPrint("ERROR: Could not get TimerVC!"); return }
+        
+        guard let previousVC = presentingViewController else { debugPrint("ERROR: Could not get previous VC!"); return }
+        self.dismiss(animated: true) 
         {
             // Setup TimerVC
             
-            self.present(timerVC, animated: false, completion: nil)
+            previousVC.present(timerVC, animated: true, completion: nil)
         }
     }
     

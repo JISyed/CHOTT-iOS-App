@@ -19,6 +19,8 @@ class ProjectTimerViewController: UIViewController
     @IBOutlet weak var lblTimer: UILabel!
     @IBOutlet weak var btnFinish: UIButton!
     
+    private var currentCategory: ChottCategory?
+    
     
     override func viewDidLoad() 
     {
