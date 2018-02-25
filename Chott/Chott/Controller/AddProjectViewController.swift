@@ -40,7 +40,7 @@ class AddProjectViewController: UIViewController
         
         guard let category = currentCategory else {return}
         self.imgViewCategory.image = ChottCategory.icon(of: category)
-        self.lblCategory.text = category.rawValue
+        self.lblCategory.text = ChottCategory.name(of: category)
         self.viewCategoryBanner.backgroundColor = ChottCategory.regularColor(of: category)
     }
     

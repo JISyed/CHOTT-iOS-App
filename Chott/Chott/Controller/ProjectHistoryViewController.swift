@@ -27,7 +27,17 @@ class ProjectHistoryViewController: UIViewController
         // Do any additional setup after loading the view.
         
         self.tableSessions.delegate = self
-    }    
+        self.tableSessions.dataSource = self
+        
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) 
+    {
+        super.viewWillAppear(animated)
+        
+        
+    }
     
     
     func setup(with category: ChottCategory?)

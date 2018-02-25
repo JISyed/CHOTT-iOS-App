@@ -40,7 +40,7 @@ class ProjectTimerViewController: UIViewController
         
         self.imgViewCategory.image = ChottCategory.icon(of: category)
         self.imgViewCategory.tintColor = liteColor
-        self.lblCategory.text = category.rawValue
+        self.lblCategory.text = ChottCategory.name(of: category)
         self.lblCategory.textColor = liteColor
         self.lblProjectName.text = "TODO: SET UP THE PROJECT NAME"
         self.lblProjectName.textColor = liteColor
@@ -49,6 +49,7 @@ class ProjectTimerViewController: UIViewController
         self.viewColoredRing.backgroundColor = ChottCategory.regularColor(of: category)
         self.btnFinish.setTitleColor(liteColor, for: .normal)
         self.btnFinish.backgroundColor = ChottCategory.darkColor(of: category)
+        
         
     }
     

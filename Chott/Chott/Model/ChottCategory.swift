@@ -9,16 +9,22 @@
 import UIKit // For UIColor
 
 
-enum ChottCategory: String
+enum ChottCategory: Int
 {
-    case code = "Code"
-    case art = "Art"
-    case music = "Music"
-    case writing = "Writing"
+    case code = 1
+    case art = 2
+    case music = 3
+    case writing = 4
     
     
     
     // Enum Methods
+    
+    private static let codeName = "Code"
+    private static let artName = "Art"
+    private static let musicName = "Music"
+    private static let writingName = "Writing"
+    
     
     static func regularColor(of category: ChottCategory) -> UIColor
     {
@@ -77,6 +83,21 @@ enum ChottCategory: String
             return AppImages.iconMusic
         case .writing:
             return AppImages.iconWriting
+        }
+    }
+    
+    static func name(of category: ChottCategory) -> String
+    {
+        switch category
+        {
+        case .code:
+            return codeName
+        case .art:
+            return artName
+        case .music:
+            return musicName
+        case .writing:
+            return writingName
         }
     }
     

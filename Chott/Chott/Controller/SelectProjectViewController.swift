@@ -27,7 +27,7 @@ class SelectProjectViewController: UIViewController
         // Do any additional setup after loading the view.
         
         self.tableProjects.delegate = self
-        
+        self.tableProjects.dataSource = self
         
     }
     
@@ -38,7 +38,7 @@ class SelectProjectViewController: UIViewController
         
         guard let category = currentCategory else {return}
         self.imgViewCategory.image = ChottCategory.icon(of: category)
-        self.lblCategory.text = category.rawValue
+        self.lblCategory.text = ChottCategory.name(of: category)
         self.viewCategoryBanner.backgroundColor = ChottCategory.regularColor(of: category)
         self.btnAdd.backgroundColor = ChottCategory.darkColor(of: category)
     }
@@ -80,7 +80,7 @@ extension SelectProjectViewController: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int 
     {
         // TODO: Number of projects
-        return 1
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell 
