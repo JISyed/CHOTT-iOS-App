@@ -17,20 +17,8 @@ class HistoryTableCell: UITableViewCell
     @IBOutlet weak var lblDuration: UILabel!
     
     
-    override func awakeFromNib() 
+    func setupCell(withSession session: ChottSessionData)
     {
-        super.awakeFromNib()
-        // Initialization code
-        
-        
-    }
-    
-    
-    override func setSelected(_ selected: Bool, animated: Bool) 
-    {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-        
         
     }
     

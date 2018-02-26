@@ -29,6 +29,8 @@ class SelectProjectViewController: UIViewController
         self.tableProjects.delegate = self
         self.tableProjects.dataSource = self
         
+        // Invoke the loading of data for projects of this category
+        ChottDataService.loadCurrentProjects(from: self.currentCategory!)
     }
     
     
@@ -41,6 +43,8 @@ class SelectProjectViewController: UIViewController
         self.lblCategory.text = ChottCategory.name(of: category)
         self.viewCategoryBanner.backgroundColor = ChottCategory.regularColor(of: category)
         self.btnAdd.backgroundColor = ChottCategory.darkColor(of: category)
+        
+        self.tableProjects.reloadData()
     }
     
     
@@ -79,14 +83,17 @@ extension SelectProjectViewController: UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int 
     {
-        // TODO: Number of projects
-        return 0
+        return ChottDataService.currentProjects.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell 
     {
-        // TODO: A ProjectTableCell
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ProjectTableCell.ID) as? ProjectTableCell else {return UITableViewCell()}
+        
+        let project = ChottDataService.currentProjects[indexPath.row]
+        cell.setupCell(withProject: project)
+        
+        return cell
     }
     
     

@@ -15,6 +15,43 @@ class CoreDataService
     
     
     
+    /// Creates a new object managed by Core Data. Does not save, you must do that yourself! (Call `CoreDataService.saveContext()`)
+    static func makeNewEntity<T>(ofType entityType: T.Type) -> T where T : NSManagedObject 
+    {
+        let newEntity = T(context: CoreDataService.context)
+        return newEntity
+    }
+    
+    /// Deletes the given object managed by Core Data. Does not save, you must do that yourself! (Call `CoreDataService.saveContext()`)
+    static func deleteEntity<T>(ofType entityType: T.Type, entity: T) where T : NSManagedObject
+    {
+        CoreDataService.context.delete(entity)
+    }
+    
+    
+    
+    static func loadEntities<T>(ofType entityType: T.Type, onComplete: @escaping (_ entities: [T]?) -> Void) where T : NSFetchRequestResult
+    {
+        let fetchRequest = NSFetchRequest<T>(entityName: "\(T.self)")
+        
+        var foundEntities: [T]? = nil
+        
+        do
+        {
+            foundEntities = try CoreDataService.context.fetch(fetchRequest)
+            onComplete(foundEntities)
+        }
+        catch
+        {
+            debugPrint("Could not fetch entites of type \(T.self): \(error.localizedDescription)")
+            onComplete(nil)
+        }
+    }
+    
+    
+    
+    
+    // MARK: - Core Data stack
     
     
     /// Container for all CoreData objects that will be saved
@@ -23,9 +60,6 @@ class CoreDataService
         return persistentContainer.viewContext
     }
     
-    
-    
-    // MARK: - Core Data stack
     
     private static var persistentContainer: NSPersistentContainer = {
         /*

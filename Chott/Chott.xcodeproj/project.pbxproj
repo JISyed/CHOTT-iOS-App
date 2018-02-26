@@ -16,6 +16,7 @@
 		51507F662040C8A7006A25A7 /* ChottCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51507F652040C8A7006A25A7 /* ChottCategory.swift */; };
 		51507F682041D8A2006A25A7 /* AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51507F672041D8A2006A25A7 /* AppImages.swift */; };
 		51507F6A20422C28006A25A7 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51507F6920422C28006A25A7 /* CoreDataService.swift */; };
+		51507F6C20431815006A25A7 /* ChottDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51507F6B20431815006A25A7 /* ChottDataService.swift */; };
 		51C24948203E6C930063D125 /* AddProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C24947203E6C930063D125 /* AddProjectViewController.swift */; };
 		51D23B8E203D188C00E8200E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D23B8D203D188C00E8200E /* AppDelegate.swift */; };
 		51D23B90203D188C00E8200E /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D23B8F203D188C00E8200E /* CategoryViewController.swift */; };
@@ -47,6 +48,7 @@
 		51507F652040C8A7006A25A7 /* ChottCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChottCategory.swift; sourceTree = "<group>"; };
 		51507F672041D8A2006A25A7 /* AppImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImages.swift; sourceTree = "<group>"; };
 		51507F6920422C28006A25A7 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		51507F6B20431815006A25A7 /* ChottDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChottDataService.swift; sourceTree = "<group>"; };
 		51C24947203E6C930063D125 /* AddProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectViewController.swift; sourceTree = "<group>"; };
 		51D23B8A203D188C00E8200E /* Chott.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chott.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51D23B8D203D188C00E8200E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				51D23BB4203DB7DE00E8200E /* AppColors.swift */,
 				51507F672041D8A2006A25A7 /* AppImages.swift */,
 				51507F6920422C28006A25A7 /* CoreDataService.swift */,
+				51507F6B20431815006A25A7 /* ChottDataService.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				51507F6A20422C28006A25A7 /* CoreDataService.swift in Sources */,
 				51507F64203F95FE006A25A7 /* HistoryTableCell.swift in Sources */,
 				51D23B96203D188C00E8200E /* Chott.xcdatamodeld in Sources */,
+				51507F6C20431815006A25A7 /* ChottDataService.swift in Sources */,
 				51D23BB5203DB7DE00E8200E /* AppColors.swift in Sources */,
 				51507F5C203F9331006A25A7 /* SelectProjectViewController.swift in Sources */,
 				51D23B90203D188C00E8200E /* CategoryViewController.swift in Sources */,

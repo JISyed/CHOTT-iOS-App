@@ -13,24 +13,16 @@ class ProjectTableCell: UITableViewCell
     static let ID = "ProjectCell"
     
     @IBOutlet weak var btnProjectName: UIButton!
+    private var currentProject: ChottProjectData?
     
     
-    override func awakeFromNib() 
+    func setupCell(withProject project: ChottProjectData?)
     {
-        super.awakeFromNib()
-        // Initialization code
+        self.currentProject = project
         
-        
+        self.btnProjectName.setTitle(project!.name, for: .normal)
     }
     
-    
-    override func setSelected(_ selected: Bool, animated: Bool) 
-    {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-        
-        
-    }
     
     
     @IBAction func onProjectNamePressed(_ sender: UIButton) 

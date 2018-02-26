@@ -58,14 +58,24 @@ class AddProjectViewController: UIViewController
     }
     
     
-    
-    private func addNewProject()
+    /// Returns true if project was successfully added
+    private func addNewProject() -> Bool
     {
         // TODO: Make sure text field isn't empty
+        guard let newName = self.txtFieldNewName.text, newName != "" else
+        {
+            // TODO: Refactor this to show a prompt saying you need a name!
+            print("No name provided. Will not add project")
+            return false
+        }
         
-        // TODO: Make sure given name doens't already exist
+        // TODO: Make sure given name doesn't already exist
+        
         
         // TODO: Add project
+        ChottDataService.addProject(withName: newName, andCategory: self.currentCategory!)
+        
+        return true
     }
     
     
@@ -76,14 +86,14 @@ class AddProjectViewController: UIViewController
     
     @IBAction func onAddBtnPressed(_ sender: Any) 
     {
-        self.addNewProject()
+        guard self.addNewProject() else { return }
         
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onAddAndTrackBtnPressed(_ sender: Any) 
     {
-        self.addNewProject()
+        //guard self.addNewProject() else { return }
         
         guard let timerVC = self.storyboard?.instantiateViewController(withIdentifier: ProjectTimerViewController.STRYBRD_ID) as? ProjectTimerViewController else { debugPrint("ERROR: Could not get TimerVC!"); return }
         
