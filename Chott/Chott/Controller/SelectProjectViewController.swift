@@ -98,6 +98,67 @@ extension SelectProjectViewController: UITableViewDataSource
     }
     
     
+    // Allows table cells to be editable
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool 
+    {
+        return true
+    }
+    
+    // No edit icons (unswiped)
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle 
+    {
+        return UITableViewCellEditingStyle.none
+    }
+    
+    // Add swipe actions
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? 
+    {
+        let project = ChottDataService.currentProjects[indexPath.row]
+        
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (rowAction, indexPath) in
+            //self.removeGoal(atIndexPath: indexPath)
+            //self.fetchGoalsFromCoreData()   // Reload
+            //tableView.deleteRows(at: [indexPath], with: .automatic) // automatic animation
+        }
+        deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+        
+        
+        let renameAction = UITableViewRowAction(style: .normal, title: "Rename") { (rowAction, indexPath) in
+            
+            let alert = UIAlertController(title: "Rename Project", message: "Provide a new name for '\(project.name!)'", preferredStyle: .alert)
+            alert.addTextField(configurationHandler: { (textField) in
+                textField.placeholder = "New Project Name"
+                textField.keyboardAppearance = .dark
+            })
+            let renameAction = UIAlertAction(title: "Rename", style: .destructive, handler: { (_) in
+                let newNameEntered = alert.textFields!.first!.text
+                print(newNameEntered!)
+                
+                guard let newName = newNameEntered, newName != "" else
+                {            
+                    let alert = UIAlertController(title: "Project Not Renamed", message: "You forgot to provide a new name for '\(project.name!)'.", preferredStyle: .alert)
+                    let dismissAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                    alert.addAction(dismissAction)
+                    self.present(alert, animated: true, completion: nil)
+                    print("Rename failed. Leaving rename alert...")
+                    return
+                }
+                
+                print("New name ready to be applied...")
+            })
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(renameAction)
+            alert.addAction(cancelAction)
+            self.present(alert, animated: true, completion: nil)
+            
+            tableView.reloadRows(at: [indexPath], with: .automatic) // Reload this row only
+        }
+        renameAction.backgroundColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
+        
+        
+        return [deleteAction, renameAction]
+    }
+    
 }
 
 

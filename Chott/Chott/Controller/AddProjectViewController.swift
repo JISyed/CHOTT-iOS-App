@@ -62,9 +62,12 @@ class AddProjectViewController: UIViewController
     {
         // Make sure text field isn't empty
         guard let newName = self.txtFieldNewName.text, newName != "" else
-        {
-            // TODO: Refactor this to show a prompt saying you need a name!
-            print("No name provided. Will not add project")
+        {            
+            let alert = UIAlertController(title: "Project Not Added", message: "You need to provide a name first.", preferredStyle: .alert)
+            let dismissAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(dismissAction)
+            self.present(alert, animated: true, completion: nil)
+            
             return nil
         }
         
