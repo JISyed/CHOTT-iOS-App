@@ -17,6 +17,7 @@
 		51507F682041D8A2006A25A7 /* AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51507F672041D8A2006A25A7 /* AppImages.swift */; };
 		51507F6A20422C28006A25A7 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51507F6920422C28006A25A7 /* CoreDataService.swift */; };
 		51507F6C20431815006A25A7 /* ChottDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51507F6B20431815006A25A7 /* ChottDataService.swift */; };
+		51507F772044C2C0006A25A7 /* ViewControllerPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51507F762044C2C0006A25A7 /* ViewControllerPresenting.swift */; };
 		51C24948203E6C930063D125 /* AddProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C24947203E6C930063D125 /* AddProjectViewController.swift */; };
 		51D23B8E203D188C00E8200E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D23B8D203D188C00E8200E /* AppDelegate.swift */; };
 		51D23B90203D188C00E8200E /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D23B8F203D188C00E8200E /* CategoryViewController.swift */; };
@@ -49,6 +50,7 @@
 		51507F672041D8A2006A25A7 /* AppImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImages.swift; sourceTree = "<group>"; };
 		51507F6920422C28006A25A7 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		51507F6B20431815006A25A7 /* ChottDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChottDataService.swift; sourceTree = "<group>"; };
+		51507F762044C2C0006A25A7 /* ViewControllerPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenting.swift; sourceTree = "<group>"; };
 		51C24947203E6C930063D125 /* AddProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectViewController.swift; sourceTree = "<group>"; };
 		51D23B8A203D188C00E8200E /* Chott.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chott.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51D23B8D203D188C00E8200E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		51507F752044C1AB006A25A7 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				51507F762044C2C0006A25A7 /* ViewControllerPresenting.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		51D23B81203D188C00E8200E = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +113,7 @@
 		51D23B8C203D188C00E8200E /* Chott */ = {
 			isa = PBXGroup;
 			children = (
+				51507F752044C1AB006A25A7 /* Protocols */,
 				51D23BB3203DB76400E8200E /* Utilities */,
 				51D23BB2203DB75400E8200E /* Model */,
 				51D23BB1203DB74B00E8200E /* View */,
@@ -277,6 +288,7 @@
 				51D23BB5203DB7DE00E8200E /* AppColors.swift in Sources */,
 				51507F5C203F9331006A25A7 /* SelectProjectViewController.swift in Sources */,
 				51D23B90203D188C00E8200E /* CategoryViewController.swift in Sources */,
+				51507F772044C2C0006A25A7 /* ViewControllerPresenting.swift in Sources */,
 				51507F62203F958F006A25A7 /* ProjectTableCell.swift in Sources */,
 				51507F682041D8A2006A25A7 /* AppImages.swift in Sources */,
 				51507F662040C8A7006A25A7 /* ChottCategory.swift in Sources */,

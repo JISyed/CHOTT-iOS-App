@@ -14,11 +14,14 @@ class ProjectTableCell: UITableViewCell
     
     @IBOutlet weak var btnProjectName: UIButton!
     private var currentProject: ChottProjectData?
+    private var currentCategory: ChottCategory = .art  // Needed to avoid init()
+    weak var vcPresentingDelegate: ViewControllerPresenting?
     
     
     func setupCell(withProject project: ChottProjectData?)
     {
         self.currentProject = project
+        self.currentCategory = ChottCategory(rawValue: Int(self.currentProject!.categoryId))!
         
         self.btnProjectName.setTitle(project!.name, for: .normal)
     }
@@ -27,12 +30,14 @@ class ProjectTableCell: UITableViewCell
     
     @IBAction func onProjectNamePressed(_ sender: UIButton) 
     {
-        
+        guard let delegate = self.vcPresentingDelegate else { debugPrint("ERROR: Cannot find VC Presenting Delegate"); return }
+        delegate.presentTimerViewController(withProject: self.currentProject)
     }
     
     @IBAction func onHistoryBtnPressed(_ sender: Any) 
     {
-        
+        guard let delegate = self.vcPresentingDelegate else { debugPrint("ERROR: Cannot find VC Presenting Delegate"); return }
+        delegate.presentHistoryViewController(withProject: self.currentProject)
     }
     
     

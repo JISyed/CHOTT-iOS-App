@@ -26,7 +26,7 @@ class CategoryViewController: UIViewController
         guard let selectProjectVC = storyboard?.instantiateViewController(withIdentifier: SelectProjectViewController.STRYBRD_ID) as? SelectProjectViewController else { debugPrint("ERROR: Could not get SelectProjectVC!"); return }
         
         // Using button tags between 1 to 4 to represent different catagories. See ChottCategories.swift
-        let selectedCategory = ChottCategory(rawValue: sender.tag)
+        let selectedCategory = ChottCategory(rawValue: sender.tag)!
         selectProjectVC.setup(with: selectedCategory)
         
         

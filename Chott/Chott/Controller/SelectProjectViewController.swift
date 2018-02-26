@@ -18,7 +18,7 @@ class SelectProjectViewController: UIViewController
     @IBOutlet weak var btnAdd: UIButton!
     @IBOutlet weak var tableProjects: UITableView!
     
-    private var currentCategory: ChottCategory?
+    private var currentCategory: ChottCategory = .art  // Needed to avoid init()
     
     
     override func viewDidLoad() 
@@ -30,7 +30,7 @@ class SelectProjectViewController: UIViewController
         self.tableProjects.dataSource = self
         
         // Invoke the loading of data for projects of this category
-        ChottDataService.loadCurrentProjects(from: self.currentCategory!)
+        ChottDataService.loadCurrentProjects(from: self.currentCategory)
     }
     
     
@@ -38,18 +38,17 @@ class SelectProjectViewController: UIViewController
     {
         super.viewWillAppear(animated)
         
-        guard let category = currentCategory else {return}
-        self.imgViewCategory.image = ChottCategory.icon(of: category)
-        self.lblCategory.text = ChottCategory.name(of: category)
-        self.viewCategoryBanner.backgroundColor = ChottCategory.regularColor(of: category)
-        self.btnAdd.backgroundColor = ChottCategory.darkColor(of: category)
+        self.imgViewCategory.image = ChottCategory.icon(of: self.currentCategory)
+        self.lblCategory.text = ChottCategory.name(of: self.currentCategory)
+        self.viewCategoryBanner.backgroundColor = ChottCategory.regularColor(of: self.currentCategory)
+        self.btnAdd.backgroundColor = ChottCategory.darkColor(of: self.currentCategory)
         
         self.tableProjects.reloadData()
     }
     
     
     
-    func setup(with category: ChottCategory?)
+    func setup(with category: ChottCategory)
     {
         self.currentCategory = category
     }
@@ -91,6 +90,8 @@ extension SelectProjectViewController: UITableViewDataSource
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ProjectTableCell.ID) as? ProjectTableCell else {return UITableViewCell()}
         
         let project = ChottDataService.currentProjects[indexPath.row]
+        
+        cell.vcPresentingDelegate = self
         cell.setupCell(withProject: project)
         
         return cell
@@ -99,4 +100,26 @@ extension SelectProjectViewController: UITableViewDataSource
     
 }
 
+
+
+extension SelectProjectViewController: ViewControllerPresenting
+{
+    func presentTimerViewController(withProject project: ChottProjectData?) 
+    {
+        guard let timerVC = self.storyboard?.instantiateViewController(withIdentifier: ProjectTimerViewController.STRYBRD_ID) as? ProjectTimerViewController else { debugPrint("ERROR: Could not get TimerVC!"); return }
+        
+        timerVC.setup(with: project!)
+        present(timerVC, animated: true, completion: nil)
+    }
+    
+    func presentHistoryViewController(withProject project: ChottProjectData?) 
+    {
+        guard let historyVC = self.storyboard?.instantiateViewController(withIdentifier: ProjectHistoryViewController.STRYBRD_ID) as? ProjectHistoryViewController else { debugPrint("ERROR: Could not get TimerVC!"); return }
+        
+        historyVC.setup(with: project!)
+        present(historyVC, animated: true, completion: nil)
+    }
+    
+    
+}
 

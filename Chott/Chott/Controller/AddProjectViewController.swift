@@ -9,7 +9,7 @@
 import UIKit
 
 class AddProjectViewController: UIViewController 
-{
+{    
     static let STRYBRD_ID = "AddProjectVC"
     
     @IBOutlet weak var txtFieldNewName: UITextField!
@@ -17,7 +17,7 @@ class AddProjectViewController: UIViewController
     @IBOutlet weak var lblCategory: UILabel!
     @IBOutlet weak var viewCategoryBanner: UIView!
     
-    private var currentCategory: ChottCategory?
+    private var currentCategory: ChottCategory = .art // Needed to avoid init()
     
     
     override func viewDidLoad() 
@@ -38,14 +38,13 @@ class AddProjectViewController: UIViewController
     {
         super.viewWillAppear(animated)
         
-        guard let category = currentCategory else {return}
-        self.imgViewCategory.image = ChottCategory.icon(of: category)
-        self.lblCategory.text = ChottCategory.name(of: category)
-        self.viewCategoryBanner.backgroundColor = ChottCategory.regularColor(of: category)
+        self.imgViewCategory.image = ChottCategory.icon(of: self.currentCategory)
+        self.lblCategory.text = ChottCategory.name(of: self.currentCategory)
+        self.viewCategoryBanner.backgroundColor = ChottCategory.regularColor(of: self.currentCategory)
     }
     
     
-    func setup(with category: ChottCategory?)
+    func setup(with category: ChottCategory)
     {
         self.currentCategory = category
     }
@@ -59,23 +58,21 @@ class AddProjectViewController: UIViewController
     
     
     /// Returns true if project was successfully added
-    private func addNewProject() -> Bool
+    private func addNewProject() -> ChottProjectData?
     {
-        // TODO: Make sure text field isn't empty
+        // Make sure text field isn't empty
         guard let newName = self.txtFieldNewName.text, newName != "" else
         {
             // TODO: Refactor this to show a prompt saying you need a name!
             print("No name provided. Will not add project")
-            return false
+            return nil
         }
         
         // TODO: Make sure given name doesn't already exist
         
         
         // TODO: Add project
-        ChottDataService.addProject(withName: newName, andCategory: self.currentCategory!)
-        
-        return true
+        return ChottDataService.addProject(withName: newName, andCategory: self.currentCategory)
     }
     
     
@@ -86,21 +83,21 @@ class AddProjectViewController: UIViewController
     
     @IBAction func onAddBtnPressed(_ sender: Any) 
     {
-        guard self.addNewProject() else { return }
+        guard (self.addNewProject() != nil) else { return }
         
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onAddAndTrackBtnPressed(_ sender: Any) 
     {
-        //guard self.addNewProject() else { return }
+        guard let newProject = self.addNewProject() else { return }
         
         guard let timerVC = self.storyboard?.instantiateViewController(withIdentifier: ProjectTimerViewController.STRYBRD_ID) as? ProjectTimerViewController else { debugPrint("ERROR: Could not get TimerVC!"); return }
         
         guard let previousVC = presentingViewController else { debugPrint("ERROR: Could not get previous VC!"); return }
         self.dismiss(animated: true) 
         {
-            timerVC.setup(with: self.currentCategory)
+            timerVC.setup(with: newProject)
             
             previousVC.present(timerVC, animated: true, completion: nil)
         }

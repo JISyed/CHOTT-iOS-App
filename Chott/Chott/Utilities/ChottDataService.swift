@@ -29,7 +29,7 @@ class ChottDataService
 //    }
     
     
-    static func addProject(withName name: String, andCategory cate: ChottCategory)
+    static func addProject(withName name: String, andCategory cate: ChottCategory) -> ChottProjectData?
     {
         let newProject = CoreDataService.makeNewEntity(ofType: ChottProjectData.self)
         newProject.id = UUID()
@@ -40,6 +40,8 @@ class ChottDataService
         _currentProjects.append(newProject)
         
         CoreDataService.saveContext()
+        
+        return newProject
     }
     
     static func renameProject(_ project: ChottProjectData, with newName: String)

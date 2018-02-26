@@ -19,7 +19,8 @@ class ProjectTimerViewController: UIViewController
     @IBOutlet weak var lblTimer: UILabel!
     @IBOutlet weak var btnFinish: UIButton!
     
-    private var currentCategory: ChottCategory?
+    private var currentCategory: ChottCategory = .art  // Needed to avoid init()
+    private var currentProject: ChottProjectData? 
     
     
     override func viewDidLoad() 
@@ -35,28 +36,30 @@ class ProjectTimerViewController: UIViewController
     {
         super.viewWillAppear(animated)
         
-        guard let category = currentCategory else {return}
-        let liteColor = ChottCategory.liteColor(of: category)
+        let liteColor = ChottCategory.liteColor(of: self.currentCategory)
         
-        self.imgViewCategory.image = ChottCategory.icon(of: category)
+        self.imgViewCategory.image = ChottCategory.icon(of: self.currentCategory)
         self.imgViewCategory.tintColor = liteColor
-        self.lblCategory.text = ChottCategory.name(of: category)
+        self.lblCategory.text = ChottCategory.name(of: self.currentCategory)
         self.lblCategory.textColor = liteColor
-        self.lblProjectName.text = "TODO: SET UP THE PROJECT NAME"
+        self.lblProjectName.text = self.currentProject!.name
         self.lblProjectName.textColor = liteColor
         self.lblTimer.text = "0:00"
         self.lblTimer.textColor = liteColor
-        self.viewColoredRing.backgroundColor = ChottCategory.regularColor(of: category)
+        self.viewColoredRing.backgroundColor = ChottCategory.regularColor(of: self.currentCategory)
         self.btnFinish.setTitleColor(liteColor, for: .normal)
-        self.btnFinish.backgroundColor = ChottCategory.darkColor(of: category)
+        self.btnFinish.backgroundColor = ChottCategory.darkColor(of: self.currentCategory)
         
         
     }
     
     
-    func setup(with category: ChottCategory?)
+    func setup(with project: ChottProjectData?)
     {
-        self.currentCategory = category
+        self.currentProject = project
+        self.currentCategory = ChottCategory(rawValue: Int(self.currentProject!.categoryId))!
+        
+        
     }
     
     

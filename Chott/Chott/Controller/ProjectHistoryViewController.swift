@@ -18,7 +18,8 @@ class ProjectHistoryViewController: UIViewController
     @IBOutlet weak var viewHistoryBanner: UIView!
     @IBOutlet weak var tableSessions: UITableView!
     
-    private var currentCategory: ChottCategory?
+    private var currentCategory: ChottCategory = .art // Needed to avoid init()
+    private var currentProject: ChottProjectData?
     
     
     override func viewDidLoad() 
@@ -36,13 +37,19 @@ class ProjectHistoryViewController: UIViewController
     {
         super.viewWillAppear(animated)
         
-        
+        self.imgViewCategory.image = ChottCategory.icon(of: self.currentCategory)
+        self.lblCategory.text = ChottCategory.name(of: self.currentCategory)
+        self.lblProjectName.text = self.currentProject!.name
+        self.viewHistoryBanner.backgroundColor = ChottCategory.regularColor(of: self.currentCategory)
     }
     
     
-    func setup(with category: ChottCategory?)
+    func setup(with project: ChottProjectData?)
     {
-        self.currentCategory = category
+        self.currentProject = project
+        self.currentCategory = ChottCategory(rawValue: Int(self.currentProject!.categoryId))!
+        
+        
     }
     
     
@@ -64,7 +71,7 @@ extension ProjectHistoryViewController: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int 
     {
         // TODO: Number of Sessions for this Project
-        return 1
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell 
