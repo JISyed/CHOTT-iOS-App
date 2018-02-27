@@ -19,7 +19,7 @@ class HistoryTableCell: UITableViewCell
     
     func setupCell(withSession session: ChottSessionData)
     {
-        
+        self.lblDate.text = session.endTime!.description
     }
     
     

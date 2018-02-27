@@ -75,7 +75,8 @@ class ProjectTimerViewController: UIViewController
     
     @IBAction func onFinishPressed(_ sender: Any) 
     {
-        // TODO: Add session record before dismissing
+        ChottDataService.addSession(forProject: self.currentProject!, startTime: self.startingTime, andEndTime: Date())
+        
         dismiss(animated: true, completion: nil)
     }
     

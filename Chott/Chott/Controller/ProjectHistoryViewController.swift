@@ -30,6 +30,7 @@ class ProjectHistoryViewController: UIViewController
         self.tableSessions.delegate = self
         self.tableSessions.dataSource = self
         
+        ChottDataService.loadCurrentSessions(of: self.currentProject!)
     }
     
     
@@ -41,6 +42,8 @@ class ProjectHistoryViewController: UIViewController
         self.lblCategory.text = ChottCategory.name(of: self.currentCategory)
         self.lblProjectName.text = self.currentProject!.name
         self.viewHistoryBanner.backgroundColor = ChottCategory.regularColor(of: self.currentCategory)
+        
+        self.tableSessions.reloadData()
     }
     
     
@@ -94,14 +97,18 @@ extension ProjectHistoryViewController: UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int 
     {
-        // TODO: Number of Sessions for this Project
-        return 0
+        return ChottDataService.currentSessions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell 
-    {
-        // TODO: A HistoryTableCell
-        return UITableViewCell()
+    {        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableCell.ID) as? HistoryTableCell else {return UITableViewCell()}
+        
+        let session = ChottDataService.currentSessions[indexPath.row]
+        
+        cell.setupCell(withSession: session)
+        
+        return cell
     }
     
     

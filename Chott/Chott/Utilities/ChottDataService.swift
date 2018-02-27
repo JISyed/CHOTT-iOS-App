@@ -114,7 +114,6 @@ class ChottDataService
         do 
         {
             let foundEntities: [ChottProjectData] = try CoreDataService.context.fetch(requestProjects)
-            
             _currentProjects = foundEntities
         } 
         catch 
@@ -129,7 +128,25 @@ class ChottDataService
     {
         _currentSessions.removeAll()
         
+        let requestSessions: NSFetchRequest<ChottSessionData> = ChottSessionData.fetchRequest()
         
+        // Credit to: https://stackoverflow.com/a/45685319
+        let query = NSPredicate(format: "%K == %@", "projectId", project.id! as CVarArg)
+        requestSessions.predicate = query
+        
+        let sortMethod = NSSortDescriptor(key: "endTime", ascending: false)
+        requestSessions.sortDescriptors = [sortMethod]
+        
+        do 
+        {
+            let foundEntities: [ChottSessionData] = try CoreDataService.context.fetch(requestSessions)
+            _currentSessions = foundEntities
+        } 
+        catch 
+        {
+            let fetchError = error as NSError
+            debugPrint(fetchError)
+        }
     }
     
     
