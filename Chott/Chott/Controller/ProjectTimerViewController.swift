@@ -98,8 +98,18 @@ class ProjectTimerViewController: UIViewController
     
     @IBAction func onCancelPressed(_ sender: Any) 
     {
-        // TODO: Confirm cancelling first
-        dismiss(animated: true, completion: nil)
+        let alert = UIAlertController(title: "Cancel Session?", message: "Cancel timing this session of '\(self.currentProject!.name!)'?", preferredStyle: .alert)
+        
+        let yesAction = UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in                
+            self.dismiss(animated: true, completion: nil)
+        })
+        
+        let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+        
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     
