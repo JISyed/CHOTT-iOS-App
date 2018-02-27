@@ -81,6 +81,28 @@ extension SelectProjectViewController: UITableViewDelegate
 
 extension SelectProjectViewController: UITableViewDataSource
 {
+    func numberOfSections(in tableView: UITableView) -> Int 
+    {
+        if ChottDataService.currentProjects.count == 0
+        {
+            let emptyTableLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+            emptyTableLabel.text = "Tap ＋ To Add A New Project"
+            emptyTableLabel.textAlignment = .center
+            emptyTableLabel.textColor = UIColor.white
+            emptyTableLabel.numberOfLines = 0
+            emptyTableLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.title2)
+            emptyTableLabel.sizeToFit()
+            tableView.backgroundView = emptyTableLabel
+            tableView.separatorStyle = .none
+            
+            return 1
+        }
+        
+        tableView.backgroundView = nil
+        tableView.separatorStyle = .singleLine
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int 
     {
         return ChottDataService.currentProjects.count
