@@ -30,6 +30,7 @@ class SelectProjectViewController: UIViewController
         self.tableProjects.dataSource = self
         
         // Invoke the loading of data for projects of this category
+        CoreDataService.context.reset()
         ChottDataService.loadCurrentProjects(from: self.currentCategory)
     }
     
@@ -115,6 +116,7 @@ extension SelectProjectViewController: UITableViewDataSource
     {
         let project = ChottDataService.currentProjects[indexPath.row]
         
+        
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (rowAction, indexPath) in
             //self.removeGoal(atIndexPath: indexPath)
             //self.fetchGoalsFromCoreData()   // Reload
@@ -124,31 +126,30 @@ extension SelectProjectViewController: UITableViewDataSource
         
         
         let renameAction = UITableViewRowAction(style: .normal, title: "Rename") { (rowAction, indexPath) in
-            
             let alert = UIAlertController(title: "Rename Project", message: "Provide a new name for '\(project.name!)'", preferredStyle: .alert)
             alert.addTextField(configurationHandler: { (textField) in
                 textField.placeholder = "New Project Name"
                 textField.keyboardAppearance = .dark
             })
-            let renameAction = UIAlertAction(title: "Rename", style: .destructive, handler: { (_) in
-                let newNameEntered = alert.textFields!.first!.text
-                print(newNameEntered!)
-                
-                guard let newName = newNameEntered, newName != "" else
+            
+            let renameAction = UIAlertAction(title: "Rename", style: .destructive, handler: { (_) in                
+                guard let newName = alert.textFields!.first!.text, newName != "" else
                 {            
                     let alert = UIAlertController(title: "Project Not Renamed", message: "You forgot to provide a new name for '\(project.name!)'.", preferredStyle: .alert)
-                    let dismissAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                    alert.addAction(dismissAction)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
-                    print("Rename failed. Leaving rename alert...")
                     return
                 }
                 
-                print("New name ready to be applied...")
+                ChottDataService.renameProject(project, with: newName)
+                tableView.reloadRows(at: [indexPath], with: .automatic) // Reload this row only
             })
+            
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            
             alert.addAction(renameAction)
             alert.addAction(cancelAction)
+            
             self.present(alert, animated: true, completion: nil)
             
             tableView.reloadRows(at: [indexPath], with: .automatic) // Reload this row only

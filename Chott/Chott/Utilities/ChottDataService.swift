@@ -97,12 +97,12 @@ class ChottDataService
     
     
     
+    
     static func loadCurrentProjects(from category: ChottCategory)
     {
         // Clear the context first to free memory
         _currentProjects.removeAll()
         _currentSessions.removeAll()
-        CoreDataService.context.reset()
         
         let requestProjects: NSFetchRequest<ChottProjectData> = ChottProjectData.fetchRequest()
         

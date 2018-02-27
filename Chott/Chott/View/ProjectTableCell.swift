@@ -14,15 +14,12 @@ class ProjectTableCell: UITableViewCell
     
     @IBOutlet weak var btnProjectName: UIButton!
     private var currentProject: ChottProjectData?
-    private var currentCategory: ChottCategory = .art  // Needed to avoid init()
     weak var vcPresentingDelegate: ViewControllerPresenting?
     
     
     func setupCell(withProject project: ChottProjectData?)
     {
         self.currentProject = project
-        self.currentCategory = ChottCategory(rawValue: Int(self.currentProject!.categoryId))!
-        
         self.btnProjectName.setTitle(project!.name, for: .normal)
     }
     
