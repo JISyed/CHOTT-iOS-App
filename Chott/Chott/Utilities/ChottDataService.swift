@@ -58,8 +58,8 @@ class ChottDataService
         
  
         // Now delete project
-        //_currentProjects.remove(at: rowIndex)
-        //CoreDataService.deleteEntity(ofType: ChottProjectData.self, entity: project)
+        _currentProjects.remove(at: rowIndex)
+        CoreDataService.deleteEntity(ofType: ChottProjectData.self, entity: project)
         CoreDataService.saveContext()
     }
     

@@ -146,7 +146,7 @@ extension SelectProjectViewController: UITableViewDataSource
             
             let yesAction = UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in                
                 ChottDataService.deleteProject(project, atIndex: indexPath.row)
-                //tableView.deleteRows(at: [indexPath], with: .automatic) // automatic animation
+                tableView.deleteRows(at: [indexPath], with: .automatic) // automatic animation
             })
             
             let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
