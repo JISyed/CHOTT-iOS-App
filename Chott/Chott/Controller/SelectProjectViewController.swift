@@ -130,6 +130,9 @@ extension SelectProjectViewController: UITableViewDataSource
             alert.addTextField(configurationHandler: { (textField) in
                 textField.placeholder = "New Project Name"
                 textField.keyboardAppearance = .dark
+                textField.autocapitalizationType = UITextAutocapitalizationType.words
+                textField.autocorrectionType = UITextAutocorrectionType.no
+                textField.spellCheckingType = UITextSpellCheckingType.no
             })
             
             let renameAction = UIAlertAction(title: "Rename", style: .destructive, handler: { (_) in                
