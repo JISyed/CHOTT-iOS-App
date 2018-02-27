@@ -118,8 +118,20 @@ extension SelectProjectViewController: UITableViewDataSource
         
         
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (rowAction, indexPath) in
-            ChottDataService.deleteProject(project, atIndex: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic) // automatic animation
+            
+            let alert = UIAlertController(title: "Delete Project?", message: "Are you sure you want to delete '\(project.name!)' and all of its sessions? This cannot be undone!", preferredStyle: .alert)
+            
+            let yesAction = UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in                
+                ChottDataService.deleteProject(project, atIndex: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic) // automatic animation
+            })
+            
+            let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+            
+            alert.addAction(yesAction)
+            alert.addAction(noAction)
+            
+            self.present(alert, animated: true, completion: nil)
         }
         deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         
