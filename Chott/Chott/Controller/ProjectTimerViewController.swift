@@ -21,6 +21,8 @@ class ProjectTimerViewController: UIViewController
     
     private var currentCategory: ChottCategory = .art  // Needed to avoid init()
     private var currentProject: ChottProjectData? 
+    private var startingTime = Date()
+    private var currentTime = Date()
     
     
     override func viewDidLoad() 
@@ -54,12 +56,20 @@ class ProjectTimerViewController: UIViewController
     }
     
     
-    func setup(with project: ChottProjectData?)
+    func setup(withProject project: ChottProjectData?, andStartTime startTime: Date)
     {
         self.currentProject = project
         self.currentCategory = ChottCategory(rawValue: Int(self.currentProject!.categoryId))!
+        self.resetTime(to: startTime)
+    }
+    
+    
+    private func resetTime(to newTime: Date)
+    {
+        self.startingTime = newTime
+        self.currentTime = newTime
         
-        
+        print(self.startingTime)
     }
     
     
@@ -71,7 +81,19 @@ class ProjectTimerViewController: UIViewController
     
     @IBAction func onRestartPressed(_ sender: Any) 
     {
+        let alert = UIAlertController(title: "Reset Timer?", message: "Reset the timer for this session of '\(self.currentProject!.name!)'?", preferredStyle: .alert)
         
+        let yesAction = UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in                
+            self.resetTime(to: Date())
+            self.lblTimer.text = "0:00"
+        })
+        
+        let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+        
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func onCancelPressed(_ sender: Any) 

@@ -206,7 +206,7 @@ extension SelectProjectViewController: ViewControllerPresenting
     {
         guard let timerVC = self.storyboard?.instantiateViewController(withIdentifier: ProjectTimerViewController.STRYBRD_ID) as? ProjectTimerViewController else { debugPrint("ERROR: Could not get TimerVC!"); return }
         
-        timerVC.setup(with: project!)
+        timerVC.setup(withProject: project!, andStartTime: Date())
         present(timerVC, animated: true, completion: nil)
     }
     

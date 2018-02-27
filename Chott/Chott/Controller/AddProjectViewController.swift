@@ -97,7 +97,7 @@ class AddProjectViewController: UIViewController
         guard let previousVC = presentingViewController else { debugPrint("ERROR: Could not get previous VC!"); return }
         self.dismiss(animated: true) 
         {
-            timerVC.setup(with: newProject)
+            timerVC.setup(withProject: newProject, andStartTime: Date())
             
             previousVC.present(timerVC, animated: true, completion: nil)
         }
