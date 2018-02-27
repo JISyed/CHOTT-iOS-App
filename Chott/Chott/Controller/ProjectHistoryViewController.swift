@@ -112,5 +112,44 @@ extension ProjectHistoryViewController: UITableViewDataSource
     }
     
     
+    // Allows table cells to be editable
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool 
+    {
+        return true
+    }
+    
+    // No edit icons (unswiped)
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle 
+    {
+        return UITableViewCellEditingStyle.none
+    }
+    
+    // Add swipe actions
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? 
+    {
+        let session = ChottDataService.currentSessions[indexPath.row]
+        
+        
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (rowAction, indexPath) in
+            
+            let alert = UIAlertController(title: "Delete Session?", message: "Are you sure you want to delete this session of '\(self.currentProject!.name!)'? This cannot be undone!", preferredStyle: .alert)
+            
+            let yesAction = UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in                
+                ChottDataService.deleteSession(session, atIndex: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic) // automatic animation
+            })
+            
+            let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+            
+            alert.addAction(yesAction)
+            alert.addAction(noAction)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+        deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+        
+        return [deleteAction]
+    }
+    
 }
 

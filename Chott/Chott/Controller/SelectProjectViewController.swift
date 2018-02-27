@@ -29,9 +29,8 @@ class SelectProjectViewController: UIViewController
         self.tableProjects.delegate = self
         self.tableProjects.dataSource = self
         
-        // Invoke the loading of data for projects of this category
+        // May be a good idea if you have millions of sessions in several projects
         CoreDataService.context.reset()
-        ChottDataService.loadCurrentProjects(from: self.currentCategory)
     }
     
     
@@ -43,6 +42,8 @@ class SelectProjectViewController: UIViewController
         self.lblCategory.text = ChottCategory.name(of: self.currentCategory)
         self.viewCategoryBanner.backgroundColor = ChottCategory.regularColor(of: self.currentCategory)
         self.btnAdd.backgroundColor = ChottCategory.darkColor(of: self.currentCategory)
+        
+        ChottDataService.loadCurrentProjects(from: self.currentCategory)
         
         self.tableProjects.reloadData()
     }

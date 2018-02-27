@@ -88,11 +88,20 @@ class ChottDataService
         CoreDataService.saveContext()
     }
     
-    static func deleteSession(_ session: ChottSessionData)
+    static func deleteSession(_ session: ChottSessionData, atIndex rowIndex: Int)
     {
+        _currentSessions.remove(at: rowIndex)
         CoreDataService.deleteEntity(ofType: ChottSessionData.self, entity: session)
+        CoreDataService.saveContext()
     }
     
+    
+    static func deleteEverySession(of project: ChottProjectData)
+    {
+        _currentSessions.removeAll()
+        
+        
+    }
     
     
     
