@@ -118,9 +118,8 @@ extension SelectProjectViewController: UITableViewDataSource
         
         
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (rowAction, indexPath) in
-            //self.removeGoal(atIndexPath: indexPath)
-            //self.fetchGoalsFromCoreData()   // Reload
-            //tableView.deleteRows(at: [indexPath], with: .automatic) // automatic animation
+            ChottDataService.deleteProject(project, atIndex: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic) // automatic animation
         }
         deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         

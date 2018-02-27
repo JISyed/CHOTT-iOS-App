@@ -71,10 +71,7 @@ class AddProjectViewController: UIViewController
             return nil
         }
         
-        // TODO: Make sure given name doesn't already exist
-        
-        
-        // TODO: Add project
+        // Add project
         return ChottDataService.addProject(withName: newName, andCategory: self.currentCategory)
     }
     

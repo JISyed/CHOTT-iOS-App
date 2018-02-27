@@ -53,8 +53,9 @@ class ChottDataService
     
     static func deleteProject(_ project: ChottProjectData, atIndex rowIndex: Int)
     {
+        /*
         // First delete the sessions associated with this project
-        loadCurrentSessions(of: project)
+        ChottDataService.loadCurrentSessions(of: project)
         
         // Iterate through every session and delete
         while _currentSessions.count > 0
@@ -62,15 +63,14 @@ class ChottDataService
             let _ = _currentSessions.popLast()!
             
             // TODO: Delete
-            //CoreDataService.deleteEntity(ofType: ChottSessionData.self, entity: session)
+            //ChottDataService.deleteSession(session)
         }
-        
+        */       
+ 
         // Now delete project
-        //_currentProjects.remove(at: rowIndex)
-        
-        // TODO: Remove
-            
-        //CoreDataService.deleteEntity(ofType: ChottProjectData.self, entity: project)
+        _currentProjects.remove(at: rowIndex)
+        CoreDataService.deleteEntity(ofType: ChottProjectData.self, entity: project)
+        CoreDataService.saveContext()
     }
     
     
@@ -90,7 +90,7 @@ class ChottDataService
     
     static func deleteSession(_ session: ChottSessionData)
     {
-        
+        CoreDataService.deleteEntity(ofType: ChottSessionData.self, entity: session)
     }
     
     
