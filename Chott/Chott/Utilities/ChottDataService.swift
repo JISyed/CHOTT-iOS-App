@@ -52,24 +52,14 @@ class ChottDataService
     }
     
     static func deleteProject(_ project: ChottProjectData, atIndex rowIndex: Int)
-    {
-        /*
-        // First delete the sessions associated with this project
-        ChottDataService.loadCurrentSessions(of: project)
+    { 
+        // Delete sessions of this project first
+        ChottDataService.deleteEverySession(of: project)
         
-        // Iterate through every session and delete
-        while _currentSessions.count > 0
-        {
-            let _ = _currentSessions.popLast()!
-            
-            // TODO: Delete
-            //ChottDataService.deleteSession(session)
-        }
-        */       
  
         // Now delete project
-        _currentProjects.remove(at: rowIndex)
-        CoreDataService.deleteEntity(ofType: ChottProjectData.self, entity: project)
+        //_currentProjects.remove(at: rowIndex)
+        //CoreDataService.deleteEntity(ofType: ChottProjectData.self, entity: project)
         CoreDataService.saveContext()
     }
     
@@ -100,7 +90,24 @@ class ChottDataService
     {
         _currentSessions.removeAll()
         
+        // Fetch every session for the given project ID
+        let requestSessions = NSFetchRequest<NSFetchRequestResult>(entityName: "ChottSessionData")
+        let query = NSPredicate(format: "%K == %@", "projectId", project.id! as CVarArg)
+        requestSessions.predicate = query
         
+        // Request deletion of fetched results
+        let deleteSessionsRequest = NSBatchDeleteRequest(fetchRequest: requestSessions)
+        
+        // Delete sessions
+        do
+        {
+            try CoreDataService.context.execute(deleteSessionsRequest)
+        }
+        catch
+        {
+            let deletionError = error as NSError
+            print(deletionError)
+        }
     }
     
     
