@@ -44,13 +44,13 @@ class ProjectHistoryViewController: UIViewController
     }
     
     
+    
     func setup(with project: ChottProjectData?)
     {
         self.currentProject = project
         self.currentCategory = ChottCategory(rawValue: Int(self.currentProject!.categoryId))!
-        
-        
     }
+    
     
     
     @IBAction func onBackBtnPressed(_ sender: Any) 
@@ -62,12 +62,36 @@ class ProjectHistoryViewController: UIViewController
 }
 
 
+
+
 extension ProjectHistoryViewController: UITableViewDelegate
 {
 }
 
 extension ProjectHistoryViewController: UITableViewDataSource
 {
+    func numberOfSections(in tableView: UITableView) -> Int 
+    {
+        if ChottDataService.currentSessions.count == 0
+        {
+            let emptyTableLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+            emptyTableLabel.text = "Track time for this project to see its history here."
+            emptyTableLabel.textAlignment = .center
+            emptyTableLabel.textColor = UIColor.white
+            emptyTableLabel.numberOfLines = 0
+            emptyTableLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.title2)
+            emptyTableLabel.sizeToFit()
+            tableView.backgroundView = emptyTableLabel
+            tableView.separatorStyle = .none
+            
+            return 1
+        }
+        
+        tableView.backgroundView = nil
+        tableView.separatorStyle = .singleLine
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int 
     {
         // TODO: Number of Sessions for this Project

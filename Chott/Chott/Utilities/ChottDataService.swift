@@ -23,10 +23,10 @@ class ChottDataService
         return _currentProjects
     }
     
-//    public static var currentSessions: [ChottSessionData]
-//    {
-//        return _currentSessions
-//    }
+    public static var currentSessions: [ChottSessionData]
+    {
+        return _currentSessions
+    }
     
     
     static func addProject(withName name: String, andCategory cate: ChottCategory) -> ChottProjectData?
@@ -100,7 +100,6 @@ class ChottDataService
     
     static func loadCurrentProjects(from category: ChottCategory)
     {
-        // Clear the context first to free memory
         _currentProjects.removeAll()
         _currentSessions.removeAll()
         
@@ -128,7 +127,6 @@ class ChottDataService
     
     static func loadCurrentSessions(of project: ChottProjectData)
     {
-        // Clear sessions array first to free memory
         _currentSessions.removeAll()
         
         
