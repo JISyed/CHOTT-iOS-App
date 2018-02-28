@@ -124,7 +124,7 @@ class ChottDataService
         let query = NSPredicate(format: "%K == %@", "categoryId", "\(category.rawValue)")
         requestProjects.predicate = query
         
-        let sortMethod = NSSortDescriptor(key: "lastWorkedOn", ascending: true)
+        let sortMethod = NSSortDescriptor(key: "lastWorkedOn", ascending: false)
         requestProjects.sortDescriptors = [sortMethod]
         
         do 
@@ -150,7 +150,7 @@ class ChottDataService
         let query = NSPredicate(format: "%K == %@", "projectId", project.id! as CVarArg)
         requestSessions.predicate = query
         
-        let sortMethod = NSSortDescriptor(key: "endTime", ascending: false)
+        let sortMethod = NSSortDescriptor(key: "startTime", ascending: false)
         requestSessions.sortDescriptors = [sortMethod]
         
         do 

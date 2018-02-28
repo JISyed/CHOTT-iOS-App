@@ -28,6 +28,11 @@ class ProjectTableCell: UITableViewCell
     @IBAction func onProjectNamePressed(_ sender: UIButton) 
     {
         guard let delegate = self.vcPresentingDelegate else { debugPrint("ERROR: Cannot find VC Presenting Delegate"); return }
+        
+        // First mark this project as recently tracked
+        self.currentProject!.lastWorkedOn = Date()
+        CoreDataService.saveContext()
+        
         delegate.presentTimerViewController(withProject: self.currentProject)
     }
     
