@@ -21,6 +21,7 @@ class ProjectTimerViewController: UIViewController
     
     private var currentCategory: ChottCategory = .art  // Needed to avoid init()
     private var currentProject: ChottProjectData? 
+    private var updateTimer: Timer?
     private var startingTime = Date()
     private var currentTime = Date()
     
@@ -30,7 +31,10 @@ class ProjectTimerViewController: UIViewController
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        
+        // Initialize the timer which will update the UI
+        self.updateTimer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true, block: { (_) in
+            self.updateTimerUI()
+        })
     }
     
     
@@ -51,8 +55,16 @@ class ProjectTimerViewController: UIViewController
         self.viewColoredRing.backgroundColor = ChottCategory.regularColor(of: self.currentCategory)
         self.btnFinish.setTitleColor(liteColor, for: .normal)
         self.btnFinish.backgroundColor = ChottCategory.darkColor(of: self.currentCategory)
+    }
+    
+    
+    override func viewDidDisappear(_ animated: Bool) 
+    {
+        // Remove update timer
+        self.updateTimer?.invalidate()
+        self.updateTimer = nil
         
-        
+        super.viewDidDisappear(animated)
     }
     
     
@@ -72,6 +84,12 @@ class ProjectTimerViewController: UIViewController
         print(self.startingTime)
     }
     
+    
+    private func updateTimerUI()
+    {
+        self.currentTime = Date()
+        self.lblTimer.text = DateUtility.getTimerString(from: self.startingTime, to: self.currentTime)
+    }
     
     
     @IBAction func onFinishPressed(_ sender: Any) 

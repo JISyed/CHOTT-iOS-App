@@ -59,8 +59,10 @@ class DateUtility
     {
         let timeInterval = Int(end.timeIntervalSince(start))
         
+        // If interval is greater than a minute
         if timeInterval > 59
         {
+            // If interval is greater than an hour
             if timeInterval > 3599
             {
                 let remainingMinutes = (timeInterval / 60) % 60
