@@ -19,7 +19,9 @@ class HistoryTableCell: UITableViewCell
     
     func setupCell(withSession session: ChottSessionData)
     {
-        self.lblDate.text = session.endTime!.description
+        self.lblDate.text = DateUtility.getDateString(for: session.startTime!)
+        self.lblStartAndEndTimes.text = DateUtility.getTimeRangeString(from: session.startTime!, to: session.endTime!)
+        self.lblDuration.text = DateUtility.getTimeIntervalString(from: session.startTime!, to: session.endTime!)
     }
     
     

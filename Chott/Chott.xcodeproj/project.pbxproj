@@ -18,6 +18,8 @@
 		51507F6A20422C28006A25A7 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51507F6920422C28006A25A7 /* CoreDataService.swift */; };
 		51507F6C20431815006A25A7 /* ChottDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51507F6B20431815006A25A7 /* ChottDataService.swift */; };
 		51507F772044C2C0006A25A7 /* ViewControllerPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51507F762044C2C0006A25A7 /* ViewControllerPresenting.swift */; };
+		51507F792046143C006A25A7 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51507F782046143C006A25A7 /* DateUtility.swift */; };
+		51507F7B20461699006A25A7 /* DateUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51507F7A20461699006A25A7 /* DateUtilityTests.swift */; };
 		51C24948203E6C930063D125 /* AddProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C24947203E6C930063D125 /* AddProjectViewController.swift */; };
 		51D23B8E203D188C00E8200E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D23B8D203D188C00E8200E /* AppDelegate.swift */; };
 		51D23B90203D188C00E8200E /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D23B8F203D188C00E8200E /* CategoryViewController.swift */; };
@@ -25,7 +27,6 @@
 		51D23B96203D188C00E8200E /* Chott.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 51D23B94203D188C00E8200E /* Chott.xcdatamodeld */; };
 		51D23B98203D188C00E8200E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51D23B97203D188C00E8200E /* Assets.xcassets */; };
 		51D23B9B203D188C00E8200E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51D23B99203D188C00E8200E /* LaunchScreen.storyboard */; };
-		51D23BA6203D188C00E8200E /* ChottTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D23BA5203D188C00E8200E /* ChottTests.swift */; };
 		51D23BB5203DB7DE00E8200E /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D23BB4203DB7DE00E8200E /* AppColors.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,8 @@
 		51507F6920422C28006A25A7 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		51507F6B20431815006A25A7 /* ChottDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChottDataService.swift; sourceTree = "<group>"; };
 		51507F762044C2C0006A25A7 /* ViewControllerPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenting.swift; sourceTree = "<group>"; };
+		51507F782046143C006A25A7 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
+		51507F7A20461699006A25A7 /* DateUtilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtilityTests.swift; sourceTree = "<group>"; };
 		51C24947203E6C930063D125 /* AddProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectViewController.swift; sourceTree = "<group>"; };
 		51D23B8A203D188C00E8200E /* Chott.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chott.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51D23B8D203D188C00E8200E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,7 +64,6 @@
 		51D23B9A203D188C00E8200E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51D23B9C203D188C00E8200E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51D23BA1203D188C00E8200E /* ChottTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChottTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		51D23BA5203D188C00E8200E /* ChottTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChottTests.swift; sourceTree = "<group>"; };
 		51D23BA7203D188C00E8200E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51D23BB4203DB7DE00E8200E /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,8 +133,8 @@
 		51D23BA4203D188C00E8200E /* ChottTests */ = {
 			isa = PBXGroup;
 			children = (
-				51D23BA5203D188C00E8200E /* ChottTests.swift */,
 				51D23BA7203D188C00E8200E /* Info.plist */,
+				51507F7A20461699006A25A7 /* DateUtilityTests.swift */,
 			);
 			path = ChottTests;
 			sourceTree = "<group>";
@@ -174,6 +176,7 @@
 				51507F672041D8A2006A25A7 /* AppImages.swift */,
 				51507F6920422C28006A25A7 /* CoreDataService.swift */,
 				51507F6B20431815006A25A7 /* ChottDataService.swift */,
+				51507F782046143C006A25A7 /* DateUtility.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				51507F64203F95FE006A25A7 /* HistoryTableCell.swift in Sources */,
 				51D23B96203D188C00E8200E /* Chott.xcdatamodeld in Sources */,
 				51507F6C20431815006A25A7 /* ChottDataService.swift in Sources */,
+				51507F792046143C006A25A7 /* DateUtility.swift in Sources */,
 				51D23BB5203DB7DE00E8200E /* AppColors.swift in Sources */,
 				51507F5C203F9331006A25A7 /* SelectProjectViewController.swift in Sources */,
 				51D23B90203D188C00E8200E /* CategoryViewController.swift in Sources */,
@@ -304,7 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51D23BA6203D188C00E8200E /* ChottTests.swift in Sources */,
+				51507F7B20461699006A25A7 /* DateUtilityTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
