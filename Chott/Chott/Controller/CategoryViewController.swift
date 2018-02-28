@@ -17,14 +17,44 @@ class CategoryViewController: UIViewController
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.view.window?.backgroundColor = AppColors.appBkg
+        
     }
     
     override func viewDidAppear(_ animated: Bool) 
     {
         super.viewDidAppear(animated)
         
-        print(ChottDataService.isCurrentlyTimingSession())
+        self.view.window?.backgroundColor = AppColors.appBkg
+        
+        // Check if there was a session being timed (could be the case if the app quited or crashed)
+        if ChottDataService.isCurrentlyTimingSession()
+        {
+            let restoredSession = ChottDataService.restoreCurrentSessionData()
+            
+            print("ID        : \(restoredSession.currentProjectId.uuidString)")
+            print("StartTime : \(restoredSession.currentStartTime)")
+            
+            let foundProject = ChottDataService.searchProject(byId: restoredSession.currentProjectId)
+            
+            if let project = foundProject
+            {
+                // Launch TimerVC from CategoryVC
+                guard let timerVC = self.storyboard?.instantiateViewController(withIdentifier: ProjectTimerViewController.STRYBRD_ID) as? ProjectTimerViewController else 
+                { 
+                    debugPrint("ERROR: Could not get TimerVC from CategoryVC! Cancelling saved session!")
+                    ChottDataService.declareStoppingSession()
+                    return 
+                }
+                
+                timerVC.setup(withProject: project, andStartTime: restoredSession.currentStartTime)
+                present(timerVC, animated: true, completion: nil)
+            }
+            else
+            {
+                // No project was found, so don't bother restoring session
+                ChottDataService.declareStoppingSession()
+            }
+        }
     }
     
     

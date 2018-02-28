@@ -55,6 +55,17 @@ class ChottDataService
         defaults.set(false, forKey: DefaultsKeys.isCurrentlyTiming.rawValue)
     }
     
+    public static func restoreCurrentSessionData() -> ChottCurrentSessionData
+    {
+        let idString = defaults.object(forKey: DefaultsKeys.currentProjectId.rawValue) as! String
+        let projectId = UUID(uuidString: idString)!
+        let startTime = defaults.object(forKey: DefaultsKeys.currentStartTime.rawValue) as! Date
+        
+        let restoredSession = ChottCurrentSessionData(currentProjectId: projectId, currentStartTime: startTime)
+        
+        return restoredSession
+    }
+    
     
     
     static func addProject(withName name: String, andCategory cate: ChottCategory) -> ChottProjectData?
@@ -72,12 +83,14 @@ class ChottDataService
         return newProject
     }
     
+    
     static func renameProject(_ project: ChottProjectData, with newName: String)
     {
         project.name = newName
         
         CoreDataService.saveContext()
     }
+    
     
     static func deleteProject(_ project: ChottProjectData, atIndex rowIndex: Int)
     { 
@@ -89,6 +102,28 @@ class ChottDataService
         _currentProjects.remove(at: rowIndex)
         CoreDataService.deleteEntity(ofType: ChottProjectData.self, entity: project)
         CoreDataService.saveContext()
+    }
+    
+    
+    static func searchProject(byId uuid: UUID) -> ChottProjectData?
+    {
+        let requestProjects: NSFetchRequest<ChottProjectData> = ChottProjectData.fetchRequest()
+        
+        let query = NSPredicate(format: "%K == %@", "id", uuid as CVarArg)
+        requestProjects.predicate = query
+        
+        do 
+        {
+            let foundEntities: [ChottProjectData] = try CoreDataService.context.fetch(requestProjects)
+            return foundEntities.first
+        } 
+        catch 
+        {
+            let fetchError = error as NSError
+            debugPrint(fetchError)
+        }
+        
+        return nil
     }
     
     
