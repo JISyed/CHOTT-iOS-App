@@ -73,6 +73,7 @@ class ProjectTimerViewController: UIViewController
     }
     
     
+    
     @IBAction func onFinishPressed(_ sender: Any) 
     {
         ChottDataService.addSession(forProject: self.currentProject!, startTime: self.startingTime, andEndTime: Date())

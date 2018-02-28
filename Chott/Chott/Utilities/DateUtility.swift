@@ -85,7 +85,21 @@ class DateUtility
         return "\(timeInterval) sec"
     }
     
-    
-    
+    /// Prints the time elapsed as you would see on a timer, like: 9:23 OR 2:51:49
+    static func getTimerString(from start: Date, to end: Date) -> String
+    {
+        let timeInterval = Int(end.timeIntervalSince(start))
+        
+        let s = timeInterval % 60
+        let m = (timeInterval / 60) % 60
+        let h = (timeInterval / 60) / 60
+        
+        if h == 0
+        {
+            return "\(m):\(String(format: "%02d", s))"
+        }
+        
+        return "\(h):\(String(format: "%02d", m)):\(String(format: "%02d", s))"
+    }
     
 }

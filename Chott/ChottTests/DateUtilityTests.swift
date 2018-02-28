@@ -41,6 +41,12 @@ class DateUtilityTests: XCTestCase
         print(DateUtility.getTimeIntervalString(from: Date(timeIntervalSinceNow: -191.0), to: Date()))
         print(DateUtility.getTimeIntervalString(from: Date(timeIntervalSinceNow: -3661.0), to: Date()))
         print(DateUtility.getTimeIntervalString(from: Date(timeIntervalSinceNow: -9000.0), to: Date()))
+        
+        print(DateUtility.getTimerString(from: Date(timeIntervalSinceNow: -30.0), to: Date()))
+        print(DateUtility.getTimerString(from: Date(timeIntervalSinceNow: -61.0), to: Date()))
+        print(DateUtility.getTimerString(from: Date(timeIntervalSinceNow: -191.0), to: Date()))
+        print(DateUtility.getTimerString(from: Date(timeIntervalSinceNow: -3661.0), to: Date()))
+        print(DateUtility.getTimerString(from: Date(timeIntervalSinceNow: -9000.0), to: Date()))
     }
     
     
