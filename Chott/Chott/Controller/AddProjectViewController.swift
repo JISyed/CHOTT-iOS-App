@@ -78,14 +78,14 @@ class AddProjectViewController: UIViewController
     
     @IBAction func onCancelBtnPressed(_ sender: Any) 
     {
-        dismiss(animated: true, completion: nil)
+        dismissLaterally()
     }
     
     @IBAction func onAddBtnPressed(_ sender: Any) 
     {
         guard (self.addNewProject() != nil) else { return }
         
-        dismiss(animated: true, completion: nil)
+        dismissLaterally()
     }
     
     @IBAction func onAddAndTrackBtnPressed(_ sender: Any) 
@@ -95,12 +95,12 @@ class AddProjectViewController: UIViewController
         guard let timerVC = self.storyboard?.instantiateViewController(withIdentifier: ProjectTimerViewController.STRYBRD_ID) as? ProjectTimerViewController else { debugPrint("ERROR: Could not get TimerVC!"); return }
         
         guard let previousVC = presentingViewController else { debugPrint("ERROR: Could not get previous VC!"); return }
-        self.dismiss(animated: true) 
-        {
+        
+        self.dismissLaterally { 
             timerVC.setup(withProject: newProject, andStartTime: Date())
-            
             previousVC.present(timerVC, animated: true, completion: nil)
         }
+        
     }
     
     

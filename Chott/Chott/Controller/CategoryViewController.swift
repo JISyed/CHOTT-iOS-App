@@ -17,7 +17,7 @@ class CategoryViewController: UIViewController
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        
+        self.view.window?.backgroundColor = AppColors.appBkg
     }
     
     override func viewDidAppear(_ animated: Bool) 
@@ -36,8 +36,7 @@ class CategoryViewController: UIViewController
         let selectedCategory = ChottCategory(rawValue: sender.tag)!
         selectProjectVC.setup(with: selectedCategory)
         
-        
-        present(selectProjectVC, animated: true, completion: nil)
+        presentLaterally(selectProjectVC)
     }
     
     

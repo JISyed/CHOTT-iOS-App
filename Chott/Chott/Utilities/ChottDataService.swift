@@ -16,7 +16,6 @@ class ChottDataService
     
     enum DefaultsKeys: String
     {
-        case currentCategory
         case currentProjectId
         case currentStartTime
         case isCurrentlyTiming
@@ -45,7 +44,6 @@ class ChottDataService
     
     public static func declareTimingSession(ofProject project: ChottProjectData, withStartTime startTime: Date)
     {
-        defaults.set(Int(project.categoryId), forKey: DefaultsKeys.currentCategory.rawValue)
         defaults.set(project.id!.uuidString, forKey: DefaultsKeys.currentProjectId.rawValue)
         defaults.set(startTime, forKey: DefaultsKeys.currentStartTime.rawValue)
         

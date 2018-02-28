@@ -59,7 +59,7 @@ class SelectProjectViewController: UIViewController
     
     @IBAction func onBackBtnPressed(_ sender: Any) 
     {
-        dismiss(animated: true, completion: nil)
+        dismissLaterally()
     }
     
     
@@ -68,8 +68,7 @@ class SelectProjectViewController: UIViewController
         guard let addProjectVC = storyboard?.instantiateViewController(withIdentifier: AddProjectViewController.STRYBRD_ID) as? AddProjectViewController else { debugPrint("ERROR: Could not get AddProjectVC!"); return}
         
         addProjectVC.setup(with: self.currentCategory)
-        
-        present(addProjectVC, animated: true, completion: nil)
+        presentLaterally(addProjectVC)
     }
     
     
@@ -104,10 +103,12 @@ extension SelectProjectViewController: UITableViewDataSource
         return 1
     }
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int 
     {
         return ChottDataService.currentProjects.count
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell 
     {
@@ -120,6 +121,7 @@ extension SelectProjectViewController: UITableViewDataSource
         
         return cell
     }
+    
     
     
     // Allows table cells to be editable
@@ -139,7 +141,6 @@ extension SelectProjectViewController: UITableViewDataSource
     {
         let project = ChottDataService.currentProjects[indexPath.row]
         
-        
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (rowAction, indexPath) in
             
             let alert = UIAlertController(title: "Delete Project?", message: "Are you sure you want to delete '\(project.name!)' and all of its sessions? This cannot be undone!", preferredStyle: .alert)
@@ -157,7 +158,6 @@ extension SelectProjectViewController: UITableViewDataSource
             self.present(alert, animated: true, completion: nil)
         }
         deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-        
         
         let renameAction = UITableViewRowAction(style: .normal, title: "Rename") { (rowAction, indexPath) in
             let alert = UIAlertController(title: "Rename Project", message: "Provide a new name for '\(project.name!)'", preferredStyle: .alert)
@@ -193,9 +193,9 @@ extension SelectProjectViewController: UITableViewDataSource
         }
         renameAction.backgroundColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
         
-        
         return [deleteAction, renameAction]
     }
+    
     
 }
 
@@ -211,12 +211,13 @@ extension SelectProjectViewController: ViewControllerPresenting
         present(timerVC, animated: true, completion: nil)
     }
     
+    
     func presentHistoryViewController(withProject project: ChottProjectData?) 
     {
-        guard let historyVC = self.storyboard?.instantiateViewController(withIdentifier: ProjectHistoryViewController.STRYBRD_ID) as? ProjectHistoryViewController else { debugPrint("ERROR: Could not get TimerVC!"); return }
+        guard let historyVC = self.storyboard?.instantiateViewController(withIdentifier: ProjectHistoryViewController.STRYBRD_ID) as? ProjectHistoryViewController else { debugPrint("ERROR: Could not get HistoryVC!"); return }
         
         historyVC.setup(with: project!)
-        present(historyVC, animated: true, completion: nil)
+        presentLaterally(historyVC)
     }
     
     

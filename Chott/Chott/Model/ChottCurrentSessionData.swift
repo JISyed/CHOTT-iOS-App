@@ -11,7 +11,6 @@ import Foundation
 /// Used to save the current timed session if the app quits
 struct ChottCurrentSessionData
 {
-    let currentCategory: Int
     let currentProjectId: UUID
     let currentStartTime: Date
 }

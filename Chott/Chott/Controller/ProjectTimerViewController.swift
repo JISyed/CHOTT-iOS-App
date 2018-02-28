@@ -88,7 +88,6 @@ class ProjectTimerViewController: UIViewController
         print("Project ID: \(self.currentProject!.id!.uuidString)")
         print(UserDefaults.standard.bool(forKey: ChottDataService.DefaultsKeys.isCurrentlyTiming.rawValue))
         print(UserDefaults.standard.object(forKey: ChottDataService.DefaultsKeys.currentProjectId.rawValue) as! String)
-        print(UserDefaults.standard.integer(forKey: ChottDataService.DefaultsKeys.currentCategory.rawValue))
         print(UserDefaults.standard.object(forKey: ChottDataService.DefaultsKeys.currentStartTime.rawValue) as! Date)
     }
     
@@ -119,6 +118,7 @@ class ProjectTimerViewController: UIViewController
         self.quitTimerVC()
     }
     
+    
     @IBAction func onRestartPressed(_ sender: Any) 
     {
         let alert = UIAlertController(title: "Reset Timer?", message: "Reset the timer for this session of '\(self.currentProject!.name!)'?", preferredStyle: .alert)
@@ -135,6 +135,7 @@ class ProjectTimerViewController: UIViewController
         
         self.present(alert, animated: true, completion: nil)
     }
+    
     
     @IBAction func onCancelPressed(_ sender: Any) 
     {

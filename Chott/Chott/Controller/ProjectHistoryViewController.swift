@@ -47,7 +47,6 @@ class ProjectHistoryViewController: UIViewController
     }
     
     
-    
     func setup(with project: ChottProjectData?)
     {
         self.currentProject = project
@@ -55,10 +54,9 @@ class ProjectHistoryViewController: UIViewController
     }
     
     
-    
     @IBAction func onBackBtnPressed(_ sender: Any) 
     {
-        dismiss(animated: true, completion: nil)
+        dismissLaterally()
     }
     
     
@@ -70,6 +68,8 @@ class ProjectHistoryViewController: UIViewController
 extension ProjectHistoryViewController: UITableViewDelegate
 {
 }
+
+
 
 extension ProjectHistoryViewController: UITableViewDataSource
 {
@@ -95,10 +95,12 @@ extension ProjectHistoryViewController: UITableViewDataSource
         return 1
     }
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int 
     {
         return ChottDataService.currentSessions.count
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell 
     {        
@@ -118,11 +120,13 @@ extension ProjectHistoryViewController: UITableViewDataSource
         return true
     }
     
+    
     // No edit icons (unswiped)
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle 
     {
         return UITableViewCellEditingStyle.none
     }
+    
     
     // Add swipe actions
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? 
@@ -150,6 +154,7 @@ extension ProjectHistoryViewController: UITableViewDataSource
         
         return [deleteAction]
     }
+    
     
 }
 

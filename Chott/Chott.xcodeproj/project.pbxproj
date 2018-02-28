@@ -21,6 +21,7 @@
 		51507F792046143C006A25A7 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51507F782046143C006A25A7 /* DateUtility.swift */; };
 		51507F7B20461699006A25A7 /* DateUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51507F7A20461699006A25A7 /* DateUtilityTests.swift */; };
 		51507F7D204703DB006A25A7 /* ChottCurrentSessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51507F7C204703DB006A25A7 /* ChottCurrentSessionData.swift */; };
+		51507F8120471DCB006A25A7 /* UIViewController+CustomTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51507F8020471DCB006A25A7 /* UIViewController+CustomTransitions.swift */; };
 		51C24948203E6C930063D125 /* AddProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C24947203E6C930063D125 /* AddProjectViewController.swift */; };
 		51D23B8E203D188C00E8200E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D23B8D203D188C00E8200E /* AppDelegate.swift */; };
 		51D23B90203D188C00E8200E /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D23B8F203D188C00E8200E /* CategoryViewController.swift */; };
@@ -56,6 +57,7 @@
 		51507F782046143C006A25A7 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		51507F7A20461699006A25A7 /* DateUtilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtilityTests.swift; sourceTree = "<group>"; };
 		51507F7C204703DB006A25A7 /* ChottCurrentSessionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChottCurrentSessionData.swift; sourceTree = "<group>"; };
+		51507F8020471DCB006A25A7 /* UIViewController+CustomTransitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CustomTransitions.swift"; sourceTree = "<group>"; };
 		51C24947203E6C930063D125 /* AddProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectViewController.swift; sourceTree = "<group>"; };
 		51D23B8A203D188C00E8200E /* Chott.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chott.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51D23B8D203D188C00E8200E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,14 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		51507F7E20471D96006A25A7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				51507F8020471DCB006A25A7 /* UIViewController+CustomTransitions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		51D23B81203D188C00E8200E = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +127,7 @@
 		51D23B8C203D188C00E8200E /* Chott */ = {
 			isa = PBXGroup;
 			children = (
+				51507F7E20471D96006A25A7 /* Extensions */,
 				51507F752044C1AB006A25A7 /* Protocols */,
 				51D23BB3203DB76400E8200E /* Utilities */,
 				51D23BB2203DB75400E8200E /* Model */,
@@ -301,6 +312,7 @@
 				51507F662040C8A7006A25A7 /* ChottCategory.swift in Sources */,
 				51507F5E203F93AB006A25A7 /* ProjectTimerViewController.swift in Sources */,
 				51507F60203F940D006A25A7 /* ProjectHistoryViewController.swift in Sources */,
+				51507F8120471DCB006A25A7 /* UIViewController+CustomTransitions.swift in Sources */,
 				51507F5A203F3133006A25A7 /* CircularView.swift in Sources */,
 				51507F7D204703DB006A25A7 /* ChottCurrentSessionData.swift in Sources */,
 				51C24948203E6C930063D125 /* AddProjectViewController.swift in Sources */,
