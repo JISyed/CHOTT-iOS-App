@@ -20,6 +20,13 @@ class CategoryViewController: UIViewController
         
     }
     
+    override func viewDidAppear(_ animated: Bool) 
+    {
+        super.viewDidAppear(animated)
+        
+        print(ChottDataService.isCurrentlyTimingSession())
+    }
+    
     
     @IBAction func onCategoryBtnPressed(_ sender: UIButton) 
     {        

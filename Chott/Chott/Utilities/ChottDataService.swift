@@ -14,6 +14,15 @@ class ChottDataService
 {
     private init(){}
     
+    enum DefaultsKeys: String
+    {
+        case currentCategory
+        case currentProjectId
+        case currentStartTime
+        case isCurrentlyTiming
+    }
+    
+    private static let defaults = UserDefaults.standard
     
     private static var _currentProjects = [ChottProjectData]()
     private static var _currentSessions = [ChottSessionData]()
@@ -27,6 +36,27 @@ class ChottDataService
     {
         return _currentSessions
     }
+    
+    
+    public static func isCurrentlyTimingSession() -> Bool
+    {
+        return defaults.bool(forKey: DefaultsKeys.isCurrentlyTiming.rawValue)
+    }
+    
+    public static func declareTimingSession(ofProject project: ChottProjectData, withStartTime startTime: Date)
+    {
+        defaults.set(Int(project.categoryId), forKey: DefaultsKeys.currentCategory.rawValue)
+        defaults.set(project.id!.uuidString, forKey: DefaultsKeys.currentProjectId.rawValue)
+        defaults.set(startTime, forKey: DefaultsKeys.currentStartTime.rawValue)
+        
+        defaults.set(true, forKey: DefaultsKeys.isCurrentlyTiming.rawValue)
+    }
+    
+    public static func declareStoppingSession()
+    {
+        defaults.set(false, forKey: DefaultsKeys.isCurrentlyTiming.rawValue)
+    }
+    
     
     
     static func addProject(withName name: String, andCategory cate: ChottCategory) -> ChottProjectData?

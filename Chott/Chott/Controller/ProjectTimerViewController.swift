@@ -81,7 +81,15 @@ class ProjectTimerViewController: UIViewController
         self.startingTime = newTime
         self.currentTime = newTime
         
-        print(self.startingTime)
+        // Declare to ChottDataService that a session is being timed,
+        // so that it can backup the current session of the app quits for some reason
+        ChottDataService.declareTimingSession(ofProject: self.currentProject!, withStartTime: newTime)
+        
+        print("Project ID: \(self.currentProject!.id!.uuidString)")
+        print(UserDefaults.standard.bool(forKey: ChottDataService.DefaultsKeys.isCurrentlyTiming.rawValue))
+        print(UserDefaults.standard.object(forKey: ChottDataService.DefaultsKeys.currentProjectId.rawValue) as! String)
+        print(UserDefaults.standard.integer(forKey: ChottDataService.DefaultsKeys.currentCategory.rawValue))
+        print(UserDefaults.standard.object(forKey: ChottDataService.DefaultsKeys.currentStartTime.rawValue) as! Date)
     }
     
     
@@ -92,11 +100,23 @@ class ProjectTimerViewController: UIViewController
     }
     
     
+    private func quitTimerVC()
+    {
+        // Declare to ChottDataService that we stopped timing the session,
+        // so that it doesn't think the app quit on us and we intend to end the session
+        ChottDataService.declareStoppingSession()
+        
+        print(UserDefaults.standard.bool(forKey: ChottDataService.DefaultsKeys.isCurrentlyTiming.rawValue))
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     @IBAction func onFinishPressed(_ sender: Any) 
     {
         ChottDataService.addSession(forProject: self.currentProject!, startTime: self.startingTime, andEndTime: Date())
         
-        dismiss(animated: true, completion: nil)
+        self.quitTimerVC()
     }
     
     @IBAction func onRestartPressed(_ sender: Any) 
@@ -121,7 +141,7 @@ class ProjectTimerViewController: UIViewController
         let alert = UIAlertController(title: "Cancel Session?", message: "Cancel timing this session of '\(self.currentProject!.name!)'?", preferredStyle: .alert)
         
         let yesAction = UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in                
-            self.dismiss(animated: true, completion: nil)
+            self.quitTimerVC()
         })
         
         let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
