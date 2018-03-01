@@ -549,7 +549,7 @@
                                 <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Name of your new project" textAlignment="natural" minimumFontSize="10" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="0sy-EI-B5l">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="10" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="0sy-EI-B5l">
                                 <rect key="frame" x="16" y="209" width="288" height="40"/>
                                 <color key="backgroundColor" red="0.3316011727" green="0.38350120189999998" blue="0.43765306469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>

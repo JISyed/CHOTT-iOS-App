@@ -73,7 +73,7 @@ class CategoryViewController: UIViewController
                 }
                 
                 timerVC.setup(withProject: project, andStartTime: restoredSession.currentStartTime)
-                present(timerVC, animated: true, completion: nil)
+                present(timerVC, animated: false, completion: nil)
             }
             else
             {

@@ -163,10 +163,12 @@ extension SelectProjectViewController: UITableViewDataSource
             let alert = UIAlertController(title: "Rename Project", message: "Provide a new name for '\(project.name!)'", preferredStyle: .alert)
             alert.addTextField(configurationHandler: { (textField) in
                 textField.placeholder = "New Project Name"
+                textField.text = project.name!
                 textField.keyboardAppearance = .dark
                 textField.autocapitalizationType = UITextAutocapitalizationType.words
                 textField.autocorrectionType = UITextAutocorrectionType.no
                 textField.spellCheckingType = UITextSpellCheckingType.no
+                textField.clearButtonMode = .always
             })
             
             let renameAction = UIAlertAction(title: "Rename", style: .destructive, handler: { (_) in                

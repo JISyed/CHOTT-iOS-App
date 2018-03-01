@@ -55,6 +55,8 @@ class ProjectTimerViewController: UIViewController
         self.viewColoredRing.backgroundColor = ChottCategory.regularColor(of: self.currentCategory)
         self.btnFinish.setTitleColor(liteColor, for: .normal)
         self.btnFinish.backgroundColor = ChottCategory.darkColor(of: self.currentCategory)
+        
+        self.updateTimerUI()
     }
     
     
@@ -84,11 +86,6 @@ class ProjectTimerViewController: UIViewController
         // Declare to ChottDataService that a session is being timed,
         // so that it can backup the current session of the app quits for some reason
         ChottDataService.declareTimingSession(ofProject: self.currentProject!, withStartTime: newTime)
-        
-        print("Project ID: \(self.currentProject!.id!.uuidString)")
-        print(UserDefaults.standard.bool(forKey: ChottDataService.DefaultsKeys.isCurrentlyTiming.rawValue))
-        print(UserDefaults.standard.object(forKey: ChottDataService.DefaultsKeys.currentProjectId.rawValue) as! String)
-        print(UserDefaults.standard.object(forKey: ChottDataService.DefaultsKeys.currentStartTime.rawValue) as! Date)
     }
     
     
@@ -104,8 +101,6 @@ class ProjectTimerViewController: UIViewController
         // Declare to ChottDataService that we stopped timing the session,
         // so that it doesn't think the app quit on us and we intend to end the session
         ChottDataService.declareStoppingSession()
-        
-        print(UserDefaults.standard.bool(forKey: ChottDataService.DefaultsKeys.isCurrentlyTiming.rawValue))
         
         dismiss(animated: true, completion: nil)
     }
