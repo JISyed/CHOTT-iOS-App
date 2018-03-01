@@ -12,13 +12,39 @@ class CategoryViewController: UIViewController
 {
     static let STRYBRD_ID = "CategoryVC"
     
+    @IBOutlet weak var viewMusicPanel: UIView!
+    @IBOutlet weak var viewWritingPanel: UIView!
+    @IBOutlet weak var viewCornerRadiusMeasure: UIView!
+    @IBOutlet weak var constraintButtonsToEdge: NSLayoutConstraint!
+    
+    
     override func viewDidLoad() 
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         
+        // Only run this on iPhone X
+        if UIApplication.shared.delegate?.window??.safeAreaInsets != .zero
+        {
+            let buttonRadius = self.viewCornerRadiusMeasure.bounds.height - self.constraintButtonsToEdge.constant
+            let radius = CGSize(width: buttonRadius, height: buttonRadius)
+            
+            self.viewMusicPanel.clipsToBounds = true
+            let musicBtnPath = UIBezierPath(roundedRect: viewMusicPanel.bounds, byRoundingCorners: [.bottomLeft], cornerRadii: radius)
+            let musicBtnMask = CAShapeLayer()
+            musicBtnMask.path = musicBtnPath.cgPath
+            self.viewMusicPanel.layer.mask = musicBtnMask
+            
+            self.viewWritingPanel.clipsToBounds = true
+            let writingBtnPath = UIBezierPath(roundedRect: viewWritingPanel.bounds, byRoundingCorners: [.bottomRight], cornerRadii: radius)
+            let writingBtnMask = CAShapeLayer()
+            writingBtnMask.path = writingBtnPath.cgPath
+            self.viewWritingPanel.layer.mask = writingBtnMask
+        }
+        
     }
+    
     
     override func viewDidAppear(_ animated: Bool) 
     {
